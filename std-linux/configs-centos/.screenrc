@@ -1,0 +1,26 @@
+vbell on
+vbell_msg "   --- WUFF, WUFF ---   "
+
+#blankerprg cmatrix
+#idle 180
+
+nonblock on                 # If a window goes unresponsive, don't block the whole session waiting for it.
+nethack on                  # print wackier status messages
+startup_message off         # Turn off start message
+msgwait 2                   # Set messages timeout 
+altscreen on                # restore window contents after using (e.g.) vi
+
+defutf8 on                  # Run everything in UTF-8
+defbce on                   # erase background with current bg color
+defflow on                  # disable Ctrl-S/Ctrl-Q "flow control"
+defnonblock 5               # flaky/slow ssh lines
+defscrollback 10240         # Define scrollback buffer
+
+attrcolor b ".I"            # Allow bold colors - necessary for some reason
+
+hardstatus alwaysignore
+hardstatus alwayslastline "%{wb} %D, %Y%m%d, %c:%s | %{Wb}%H%{wb} | %l | %w %="
+
+#logfile /home/username/logs/screen_%Y-%m-%d_%0c
+#bindkey -k F1 prev
+#bindkey -k F2 next
