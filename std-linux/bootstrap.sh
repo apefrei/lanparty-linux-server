@@ -19,7 +19,7 @@ echo "### Bootstrapping this system with Butterlan standards"
 echo "    Logfile: $LOGFILE"
 askConfirmation
 
-source $STD_PATH/bootstrap-$DISTRO.sh
+source $STD_PATH/bootstrap-fedora.sh
 
 markAsDone
 cd $OLDDIR

@@ -4,20 +4,6 @@
 
 BTR_PATH=/root/scripts/blan
 STD_PATH=/root/scripts/blan/std-linux
-PRX_PATH=/root/scripts/blan/std-upstream-proxy-nginx
-DKR_PATH=/root/scripts/blan/std-docker-deployment
-
-# Detect distribution
-DISTRO=""
-if ! test -z "`grep 'ID.*centos' /etc/os-release`"
-then
-    DISTRO="centos"
-    HNFULL="`hostnamectl status | sed -r -n 's/^.*Static hostname: (.*)$/\1/p'`"
-else
-	DISTRO="else"
-	HNFULL="`hostnamectl status | sed -r -n 's/^.*Static hostname: (.*)$/\1/p'`"
-
-fi
 
 if test "$0" = "-bash"
 then
