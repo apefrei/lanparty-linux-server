@@ -17,7 +17,7 @@ echo "###"
 echo
 echo "### Bootstrapping this system with Butterlan standards"
 echo "    Logfile: $LOGFILE"
-askConfirmation
+#askConfirmation
 
 source $STD_PATH/bootstrap-fedora.sh
 
