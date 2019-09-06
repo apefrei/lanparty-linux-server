@@ -1,6 +1,6 @@
 echo "### Setting up security"
 
-yum -y install haveged ca-certificates >> $LOGFILE 2>&1
+dnf -y install haveged ca-certificates >> $LOGFILE 2>&1
 systemctl enable haveged >> $LOGFILE 2>&1
 systemctl start haveged >> $LOGFILE 2>&1
 
