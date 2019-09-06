@@ -1,5 +1,5 @@
 echo "### Setting up snmp"
-yum -y install net-snmp >> $LOGFILE 2>&1
+dnf -y install net-snmp >> $LOGFILE 2>&1
 
 mv /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.ORIG
 cp $STD_PATH/configs-centos/etc-snmp/snmpd.conf /etc/snmp/snmpd.conf
