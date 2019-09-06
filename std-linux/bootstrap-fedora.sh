@@ -1,14 +1,14 @@
 #!/bin/bash
 
 echo "### Initializing package repositories"
-yum -y install epel-release >> $LOGFILE 2>&1
-yum -y clean all >> $LOGFILE 2>&1
+dnf -y install epel-release >> $LOGFILE 2>&1
+dnf -y clean all >> $LOGFILE 2>&1
 
 echo "### Installing base packages"
-yum -y install deltarpm >> $LOGFILE 2>&1
-yum -y upgrade >> $LOGFILE 2>&1
-yum -y update ca-certificates >> $LOGFILE 2>&1
-yum -y install acpid apg bzip2 htop nano nmap nload net-tools rsync screen symlinks \
+dnf -y install deltarpm >> $LOGFILE 2>&1
+dnf -y upgrade >> $LOGFILE 2>&1
+dnf -y update ca-certificates >> $LOGFILE 2>&1
+dnf -y install acpid apg bzip2 htop nano nmap nload net-tools rsync screen symlinks \
                tcpdump telnet traceroute tree unhide unrtf unzip uuid vim-vimoutliner \
                w3m wget whois readline-devel openssl-devel bash-completion pciutils virt-what \
                sshfs yum-utils sysstat >> $LOGFILE 2>&1
