@@ -5,6 +5,8 @@
 BTR_PATH=/root/scripts/blan
 STD_PATH=/root/scripts/blan/std-linux
 
+HNFULL="`hostnamectl status | sed -r -n 's/^.*Static hostname: (.*)$/\1/p'`"
+
 if test "$0" = "-bash"
 then
     SCRIPTID="`uuid`"
