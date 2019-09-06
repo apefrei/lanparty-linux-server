@@ -40,11 +40,4 @@ chmod o=+r /usr/lib/systemd/system/auditd.service
 chmod -x /usr/lib/systemd/system/ebtables.service
 chmod -x /usr/lib/systemd/system/wpa_supplicant.service
 
-detectSystem
-echo "### Detected machine type: $MACHINE_TYPE / $MACHINE_INFO"
-if test -f "$STD_PATH/parts-fedora/machine-$MACHINE_TYPE.inc"
-then
-    source $STD_PATH/parts-fedora/machine-$MACHINE_TYPE.inc
-fi
-
 #eof
