@@ -7,5 +7,5 @@
 ### Install ###
 Kickstart the installation
 ```shell
-bash <(curl -s https://bitbucket.org/apetomate/ape-std-linux/raw/master/kickstart-standard-linux.sh)
+bash <(curl -s https://bitbucket.org/apetomate/ape-std-linux/raw/master/kickstart-butterlan-linux.sh)
 ```
