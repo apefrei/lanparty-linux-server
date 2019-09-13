@@ -3,59 +3,64 @@
 OLDDIR="`pwd`"
 cd /root/scripts/rsl
 git pull >> /dev/null
-source /root/scripts/rsl/common.inc
+source /root/scripts/blan/common.inc
 checkHostname
-checkInstall
 checkLockFile
 checkBootstrapped
 touch $LOGFILE
-cd $WEB_PATH
+cd $PRX_PATH
 
-echo "###"
-echo "###"
-echo "###"
+#Define Nginx Configs
+GENERICCACHE_VERSION="2"
+CACHE_MEM_SIZE="60000m"
+CACHE_DISK_SIZE="3000000m"
+CACHE_MAX_AGE="3560d"
+UPSTREAM_DNS="192.168.88.1"
+BEAT_TIME="1h"
+LOGFILE_RETENTION="3560"
+NGINX_WORKER_PROCESSES="16"
+CACHE_DOMAIN_REPO="https://github.com/uklans/cache-domains.git"
+NGINX_WORKER_PROCESSES="auto"
+
 echo "###"
 echo "###"
 echo "###"
 echo "###"
 echo
 
-echo "### Standard setup for webserver"
+echo "### Standard setup for proy cache"
 echo "    Logfile: $LOGFILE"
-askConfirmation
 
 echo "### Setting up basic structure"
-mkdir -p /home/archived
-mkdir -p /home/sites
-mkdir -p /home/restricted/{scripts,logs,temp}
+
+mkdir -m 755 -p /data/local/logs
+mkdir -m 755 -p /data/local/info
+mkdir -m 755 -p /data/local/cachedomains
+mkdir -m 755 -p /tmp/nginx/
+
+if test -f "/data/storage1"
+then
+    mkdir -m 755 -p /data/storage1/cache
+else
+    echo "Cannot find cache folder /data/storage1. This setup is made for two identical disk storages"
+    exit 1
+fi
+if test -f "/data/storage2"
+then
+    mkdir -m 755 -p /data/storage2/cache
+else
+    echo "Cannot find cache folder /data/storage2. This setup is made for two identical disk storages"
+    exit 1
+fi
+
+chown -R nginx:nginx /data/
 
 # ATTENTION: Dependencies!!!
-source $WEB_PATH/parts-centos/standard-webserver.inc
-source $WEB_PATH/parts-centos/standard-memcached.inc
-source $WEB_PATH/parts-centos/standard-pureftp.inc
-source $WEB_PATH/parts-centos/standard-postgresql.inc
-source $WEB_PATH/parts-centos/standard-mariadb.inc
-source $WEB_PATH/parts-centos/standard-nginx.inc
-source $WEB_PATH/parts-centos/standard-php.inc
+source $WEB_PATH/parts-centos/standard-proxy-components.inc
+source $WEB_PATH/parts-centos/standard-nginx-proxy-cache.inc
+source $WEB_PATH/parts-centos/standard-sniproxy.inc
 
-echo "### Setting up default/admin site $HNFULL"
-$WEB_PATH/scripts/create-site.sh $HNFULL default-admin-site >> $LOGFILE 2>&1
-admin_site_uid="`stat -c %U /home/sites/$site`"
-cp -Rp $WEB_PATH/admin-site/* /home/ADMIN-SITE/pub/httpdocs/
-DVP="`apg $APGOPTS`"
-htpasswd /home/sites/$HNFULL/auth/htpasswd admin $DVP
-passwordInfo "Default site" "admin" "$DVP" "https://$HNFULL/admin"
-$WEB_PATH/scripts/manage-site.sh $HNFULL site-enable >> $LOGFILE 2>&1
-$WEB_PATH/scripts/manage-site.sh $HNFULL php-enable >> $LOGFILE 2>&1
-
-echo "### Setting up phpMyAdmin"
-/opt/composer/bin/composer --quiet --no-interaction create-project phpmyadmin/phpmyadmin /home/sites/$HNFULL/pub/httpdocs/admin/phpmyadmin/ >> $LOGFILE 2>&1
-cp $WEB_PATH/configs-centos/phpmyadmin/config.inc.php /home/sites/$HNFULL/pub/httpdocs/admin/phpmyadmin/
-BFS="`apg -a0 -m15 -x15 -d -M NCL`"
-sed -i -r "s/INSERT_HERE_GENERATED_BLOWFISH_SECRET/$BFS/g" /home/sites/$HNFULL/pub/httpdocs/admin/phpmyadmin/config.inc.php
-
-chown -R nginx:nginx /home/restricted/logs
-chown -R nginx:nginx /home/restricted/temp
+###
 
 echo "### Finishing installation"
-echo "alias logtail=\"cd /var/log ; tail -f cron dmesg maillog messages secure nginx/error.log mysql/mariadb.log pureftpd.log /home/sites/*/pub/log/*.log\"" >> /root/.bashrc_local
+echo "alias logtail=\"cd /var/log ; tail -f cron dmesg messages secure nginx/error.log /data/*/logs/*.log\"" >> /root/.bashrc_local
