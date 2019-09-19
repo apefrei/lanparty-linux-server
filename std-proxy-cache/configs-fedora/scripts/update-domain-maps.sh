@@ -1,9 +1,9 @@
 #Generating Domain Map from Git Repo
 IFS=' '
 
-if ! test -d /data/local/cachedomains
+if test -f "/data/local/cachedomains"
 then
-		mkdir -p /data/local/cachedomains
+    mkdir -p /data/storage1/cache
 fi
 
 cd /data/local/cachedomains

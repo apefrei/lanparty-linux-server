@@ -4,7 +4,7 @@ test `whoami` == root || { echo "You need to be root!"; sudo su; }
 test `whoami` == root || { echo "Upgrade to root did not work"; exit 1; }
 
 echo "### Installing GIT"
-yum -y install git > /dev/null 2>&1
+dnf -y install git > /dev/null 2>&1
 
 echo "### Checking out from GIT"
 test -d "/root/scripts" || mkdir -p $USERHOME/scripts

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OLDDIR="`pwd`"
-cd /root/scripts/rsl
+cd /root/scripts/blan
 git pull >> /dev/null
 source /root/scripts/blan/common.inc
 checkHostname
@@ -9,6 +9,7 @@ checkLockFile
 checkBootstrapped
 touch $LOGFILE
 cd $PRX_PATH
+chmod +x $PRX_PATH/configs-fedora/scripts/*
 
 #Define Nginx Configs
 GENERICCACHE_VERSION="2"
@@ -37,22 +38,20 @@ mkdir -m 755 -p /data/local/info
 mkdir -m 755 -p /data/local/cachedomains
 mkdir -m 755 -p /tmp/nginx/
 
-if test -f "/data/storage1"
+if test "/data/storage1"
 then
     mkdir -m 755 -p /data/storage1/cache
 else
     echo "Cannot find cache folder /data/storage1. This setup is made for two identical disk storages"
     exit 1
 fi
-if test -f "/data/storage2"
+if test "/data/storage2"
 then
     mkdir -m 755 -p /data/storage2/cache
 else
     echo "Cannot find cache folder /data/storage2. This setup is made for two identical disk storages"
     exit 1
 fi
-
-chown -R nginx:nginx /data/
 
 # ATTENTION: Dependencies!!!
 source $WEB_PATH/parts-centos/standard-proxy-components.inc

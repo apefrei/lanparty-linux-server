@@ -3,11 +3,11 @@ echo "### Setting up nginx"
 # Install nginx
 dnf -y install nginx >> $LOGFILE 2>&1
 
-rm /etc/nginx
+rm -rf /etc/nginx
 cp -R $PRX_PATH/configs-fedora/etc-nginx /etc/nginx
 mkdir -p /etc/nginx/sites-enabled
 
-ln -s /etc/nginx/sites-available/* /etc/nginx/sites-enabled/
+ln -sf /etc/nginx/sites-available/* /etc/nginx/sites-enabled/
 
 #Configure variables
 set -e
@@ -18,6 +18,8 @@ sed -i "s/CACHE_MAX_AGE/${CACHE_MAX_AGE}/"    /etc/nginx/sites-available/generic
 sed -i "s/UPSTREAM_DNS/${UPSTREAM_DNS}/"    /etc/nginx/sites-available/generic.conf.d/10_generic.conf
 
 $PRX_PATH/configs-fedora/scripts/update-domain-maps.sh
+
+chown -R nginx:nginx /data/
 
 systemctl enable nginx.service >> $LOGFILE 2>&1
 systemctl start nginx.service >> $LOGFILE 2>&1
