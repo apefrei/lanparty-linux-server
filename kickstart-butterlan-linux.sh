@@ -10,7 +10,7 @@ echo "### Checking out from GIT"
 test -d "/root/scripts" || mkdir -p $USERHOME/scripts
 if ! test -d /root/scripts/blan/.git
 then
-    git clone --depth 1 https://bitbucket.org/apetomate/blan-host-bootstrap.git /root/scripts/blan
+    git clone --depth 1 https://bitbucket.org/apetomate/blan-standard-linux.git /root/scripts/blan
 fi
 
 if test -f "/root/scripts/blan/std-linux/bootstrap.sh"
