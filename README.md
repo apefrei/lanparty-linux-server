@@ -7,5 +7,5 @@
 ### Install ###
 Kickstart the installation
 ```shell
-bash <(curl -s https://bitbucket.org/apetomate/blan-host-bootstrap/raw/master/kickstart-butterlan-linux.sh)
+bash <(curl -s https://bitbucket.org/apetomate/blan-standard-linux/raw/master/kickstart-butterlan-linux.sh)
 ```
