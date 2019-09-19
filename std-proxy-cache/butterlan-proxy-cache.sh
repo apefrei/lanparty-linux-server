@@ -12,15 +12,14 @@ cd $PRX_PATH
 
 #Define Nginx Configs
 GENERICCACHE_VERSION="2"
-CACHE_MEM_SIZE="60000m"
-CACHE_DISK_SIZE="3000000m"
+CACHE_MEM_SIZE="4000m"
+CACHE_DISK_SIZE="3200000m"
 CACHE_MAX_AGE="3560d"
 UPSTREAM_DNS="192.168.88.1"
 BEAT_TIME="1h"
 LOGFILE_RETENTION="3560"
-NGINX_WORKER_PROCESSES="16"
-CACHE_DOMAIN_REPO="https://github.com/uklans/cache-domains.git"
 NGINX_WORKER_PROCESSES="auto"
+CACHE_DOMAIN_REPO="https://github.com/uklans/cache-domains.git"
 
 echo "###"
 echo "###"

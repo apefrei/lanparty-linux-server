@@ -11,7 +11,7 @@ dnf -y update ca-certificates >> $LOGFILE 2>&1
 dnf -y install acpid apg bzip2 htop nano nmap nload net-tools rsync screen symlinks \
                tcpdump telnet traceroute tree unhide unrtf unzip uuid vim-vimoutliner \
                w3m wget whois readline-devel openssl-devel bash-completion pciutils virt-what \
-               sshfs yum-utils sysstat >> $LOGFILE 2>&1
+               sshfs yum-utils sysstat dbus >> $LOGFILE 2>&1
 
 echo "### Setting up environment"
 cp $STD_PATH/configs-fedora/.bashrc /root/
@@ -26,6 +26,8 @@ source $STD_PATH/parts-fedora/standard-ntp.inc
 source $STD_PATH/parts-fedora/standard-snmp.inc
 source $STD_PATH/parts-fedora/standard-sysdefaults.inc
 source $STD_PATH/parts-fedora/standard-tuning.inc
+source $STD_PATH/parts-fedora/standard-python3.inc
+source $STD_PATH/parts-fedora/standard-telegraf.inc
 
 echo "### Setting up services"
 chmod +x /etc/rc.local
@@ -35,7 +37,7 @@ systemctl disable nfs-client.target >> $LOGFILE 2>&1
 systemctl disable nfs-config.service >> $LOGFILE 2>&1
 systemctl disable gssproxy.service >> $LOGFILE 2>&1
 
-yum -y remove polkit polkit-pkla-compat >> $LOGFILE 2>&1
+dnf -y remove polkit polkit-pkla-compat >> $LOGFILE 2>&1
 chmod o=+r /usr/lib/systemd/system/auditd.service
 chmod -x /usr/lib/systemd/system/ebtables.service
 chmod -x /usr/lib/systemd/system/wpa_supplicant.service

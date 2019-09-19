@@ -11,6 +11,9 @@ cp $STD_PATH/configs-fedora/etc-security/limits.conf /etc/security/limits.conf
 sed -i -r "s/^SELINUX=.*/SELINUX=permissive/g" /etc/selinux/config
 sed -i -r "s/(^Defaults.*requiretty)/\#\1/g" /etc/sudoers
 
+systemctl stop firewalld.services
+systemctl disabled firewalld.services
+
 git clone --depth 1 https://bitbucket.org/raptus-it-services/ssl-management-scripts.git /root/scripts/ssl-mgmt > /dev/null 2>&1
 
 SSL_CERT_HOSTNAME="$HNFULL"
