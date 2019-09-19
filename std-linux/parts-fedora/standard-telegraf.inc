@@ -11,7 +11,7 @@ EOF
 
 dnf -y install telegraf >> $LOGFILE 2>&1
 
-rm /etc/telegraf
+rm -rf /etc/telegraf
 cp -R $PRX_PATH/configs-fedora/etc-telegraf /etc/telegraf
 
 sed -r -i "s/(.*)STD_HOSTNAME(.*)$/\1$HNFULL\2/g" /etc/telegraf.conf
