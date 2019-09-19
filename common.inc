@@ -29,15 +29,6 @@ test -d "$LOCKDIR" || { mkdir -p "$LOCKDIR"; }
 test -d "$LOGDIR" || { mkdir -p "$LOGDIR"; }
 test -d "$STATEDIR" || { mkdir -p "$STATEDIR"; }
 
-function askConfirmation
-{
-    echo
-    echo "Are you sure? [y/n] "
-    read YESNO
-    test "$YESNO" = "y" || { echo "Aborted!"; exit 1; }
-    echo
-}
-
 function checkHostname
 {
     if ! test "`echo ${HNFULL} | grep -oc '\.'`" = "1"

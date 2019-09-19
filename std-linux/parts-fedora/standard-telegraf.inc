@@ -14,7 +14,7 @@ dnf -y install telegraf >> $LOGFILE 2>&1
 rm -rf /etc/telegraf
 cp -R $STD_PATH/configs-fedora/etc-telegraf /etc/telegraf
 
-sed -r -i "s/(.*)STD_HOSTNAME(.*)$/\1$HNFULL\2/g" /etc/telegraf.conf
+sed -r -i "s/(.*)STD_HOSTNAME(.*)$/\1$HNFULL\2/g" /etc/telegraf/telegraf.conf
 
 systemctl enable telegraf
 systemctl start telegraf
