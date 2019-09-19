@@ -58,6 +58,7 @@ chown -R nginx:nginx /data/
 source $WEB_PATH/parts-centos/standard-proxy-components.inc
 source $WEB_PATH/parts-centos/standard-nginx-proxy-cache.inc
 source $WEB_PATH/parts-centos/standard-sniproxy.inc
+source $WEB_PATH/parts-centos/standard-nginx-telegraf.inc
 
 ###
 

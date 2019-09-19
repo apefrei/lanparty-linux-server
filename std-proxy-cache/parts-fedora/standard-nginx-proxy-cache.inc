@@ -7,7 +7,7 @@ rm /etc/nginx
 cp -R $PRX_PATH/configs-fedora/etc-nginx /etc/nginx
 mkdir -p /etc/nginx/sites-enabled
 
-ln -s /etc/nginx/sites-available/10_generic.conf /etc/nginx/sites-enabled/10_generic.conf
+ln -s /etc/nginx/sites-available/* /etc/nginx/sites-enabled/
 
 #Configure variables
 set -e

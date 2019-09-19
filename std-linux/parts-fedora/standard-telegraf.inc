@@ -1,6 +1,6 @@
 echo "### Setting up telegraf"
 
-cat<<EOF | tee /etc/yum.repos.d/influxdb.repo
+cat > /etc/yum.repos.d/influxdb.repo << EOF
 [influxdb]
 name = InfluxDB Repository - RHEL
 baseurl = https://repos.influxdata.com/rhel/7/x86_64/stable/
@@ -16,6 +16,6 @@ cp $STD_PATH/configs-fedora/etc-telegraf/telegraf.conf /etc/telegraf.conf
 
 sed -r -i "s/(.*)STD_HOSTNAME(.*)$/\1$HNFULL\2/g" /etc/telegraf.conf
 
-sudo systemctl enable telegraf
-sudo systemctl start telegraf
+systemctl enable telegraf
+systemctl start telegraf
 #eof
