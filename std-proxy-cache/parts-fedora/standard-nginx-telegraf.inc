@@ -1,12 +1,4 @@
-
-cat > /etc/telegraf.conf << EOF
-
-### STD NGINX ####
-
-[[inputs.nginx]]
-  ## An array of Nginx stub_status URI to gather stats.
-  urls = ["http://localhost:8081/nginx_status"]
-EOF
+cp -R $PRX_PATH/configs-fedora/etc-telegraf/conf.d/std-proxy-cache.conf /etc/telegraf/conf.d/std-proxy-cache.conf
 
 systemctl restart telegraf
 #eof
