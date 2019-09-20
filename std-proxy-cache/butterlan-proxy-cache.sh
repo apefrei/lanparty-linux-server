@@ -22,10 +22,6 @@ LOGFILE_RETENTION="3560"
 NGINX_WORKER_PROCESSES="auto"
 CACHE_DOMAIN_REPO="https://github.com/uklans/cache-domains.git"
 
-#Define FABIO sniproxy vars
-FABLNK="https://github.com/fabiolb/fabio/releases/download/v1.5.11/fabio-1.5.11-go1.11.5-linux_amd64"
-FABCNF="https://raw.githubusercontent.com/fabiolb/fabio/master/fabio.properties"
-
 echo "###"
 echo "###"
 echo "###"
