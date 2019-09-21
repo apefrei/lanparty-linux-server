@@ -1,9 +1,10 @@
 #Generating Domain Map from Git Repo
 IFS=' '
+CACHE_DOMAIN_REPO="https://github.com/uklans/cache-domains.git"
 
 if test -f "/data/local/cachedomains"
 then
-    mkdir -p /data/storage1/cache
+    mkdir -p "/data/local/cachedomains"
 fi
 
 cd /data/local/cachedomains

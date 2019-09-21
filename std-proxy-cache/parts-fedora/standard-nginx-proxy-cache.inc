@@ -1,4 +1,4 @@
-echo "### Setting up NGINX Proxy Cache"
+echo "### Setting up NGINX Proxy Cache - This can take a while (recompiling)"
 
 # Install nginx
 dnf -y install nginx >> $LOGFILE 2>&1
@@ -7,7 +7,7 @@ dnf -y install nginx >> $LOGFILE 2>&1
 dnf -y install gcc gcc-c++ make glibc-devel libaio-devel \
                pcre-devel zlib-devel openssl-devel glibc \
                libxslt libxslt-devel libxml2 libxml2-devel libXpm-devel \
-               perl perl-devel perl-ExtUtils-Embed perl-XML-LibXML perl-XML-LibXSLT \
+#               perl perl-devel perl-ExtUtils-Embed perl-XML-LibXML perl-XML-LibXSLT \
                glibc-headers libevent libpthread.so.0 gd-devel \
                libcrypt.so.1 libstdc++.so.6 librt.so.1 libm.so.6 \
                libssl.so.10 libcrypto.so.10 libdl.so.2 gperftools-devel \
@@ -48,8 +48,8 @@ cd $TEMP_PATH/nginx-$nginxlocal
 --with-stream_ssl_module --with-stream_ssl_preread_module --with-google_perftools_module --with-debug \
 --with-cc-opt='-O2 -g -pipe -Wall -Werror=format-security -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -m64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection' >> $LOGFILE 2>&1
 
-make
-make install
+make >> $LOGFILE 2>&1
+make install >> $LOGFILE 2>&1
 cd $PRX_PATH
 rm -rf $TEMP_PATH
 
@@ -68,7 +68,7 @@ sed -i "s/CACHE_DISK_SIZE/${CACHE_DISK_SIZE}/" /etc/nginx/conf.d/20_proxy_cache_
 sed -i "s/CACHE_MAX_AGE/${CACHE_MAX_AGE}/"    /etc/nginx/sites-available/generic.conf.d/root/20_cache.conf
 sed -i "s/UPSTREAM_DNS/${UPSTREAM_DNS}/"    /etc/nginx/sites-available/generic.conf.d/10_generic.conf
 
-$PRX_PATH/configs-fedora/scripts/update-domain-maps.sh
+$PRX_PATH/configs-fedora/scripts/update-domain-maps.sh >> $LOGFILE 2>&1
 
 chown -R nginx:nginx /data/
 

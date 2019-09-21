@@ -20,7 +20,6 @@ UPSTREAM_DNS="192.168.88.1"
 BEAT_TIME="1h"
 LOGFILE_RETENTION="3560"
 NGINX_WORKER_PROCESSES="auto"
-CACHE_DOMAIN_REPO="https://github.com/uklans/cache-domains.git"
 
 echo "###"
 echo "###"
@@ -54,12 +53,15 @@ else
 fi
 
 # ATTENTION: Dependencies!!!
-source $WEB_PATH/parts-centos/standard-proxy-components.inc
-source $WEB_PATH/parts-centos/standard-nginx-proxy-cache.inc
-source $WEB_PATH/parts-centos/standard-nginx-sniproxy.inc
-source $WEB_PATH/parts-centos/standard-nginx-telegraf.inc
+source $WEB_PATH/parts-fedora/standard-proxy-components.inc
+source $WEB_PATH/parts-fedora/standard-nginx-proxy-cache.inc
+source $WEB_PATH/parts-fedora/standard-nginx-sniproxy.inc
+source $WEB_PATH/parts-fedora/standard-nginx-telegraf.inc
 
 ###
 
 echo "### Finishing installation"
 echo "alias logtail=\"cd /var/log ; tail -f cron dmesg messages secure nginx/error.log /data/*/logs/*.log\"" >> /root/.bashrc_local
+echo ""
+echo ""
+echo "PLEASE RESTART SERVER NOW"
