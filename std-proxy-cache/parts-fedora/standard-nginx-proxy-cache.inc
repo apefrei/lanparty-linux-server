@@ -7,7 +7,6 @@ dnf -y install nginx >> $LOGFILE 2>&1
 dnf -y install gcc gcc-c++ make glibc-devel libaio-devel \
                pcre-devel zlib-devel openssl-devel glibc \
                libxslt libxslt-devel libxml2 libxml2-devel libXpm-devel \
-#               perl perl-devel perl-ExtUtils-Embed perl-XML-LibXML perl-XML-LibXSLT \
                glibc-headers libevent libpthread.so.0 gd-devel \
                libcrypt.so.1 libstdc++.so.6 librt.so.1 libm.so.6 \
                libssl.so.10 libcrypto.so.10 libdl.so.2 gperftools-devel \
@@ -23,7 +22,7 @@ nginxlocal=$(echo $nginxv | grep -o '[0-9.]*')
 TEMP_PATH=$(mktemp -d)
 cd $TEMP_PATH
 wget http://nginx.org/download/nginx-$nginxlocal.tar.gz >> $LOGFILE 2>&1
-tar -xvzf nginx-$nginxlocal.tar.gz
+tar -xvzf nginx-$nginxlocal.tar.gz >> $LOGFILE 2>&1
 cd $TEMP_PATH/nginx-$nginxlocal
 
 ./configure --prefix=/usr/share/nginx \

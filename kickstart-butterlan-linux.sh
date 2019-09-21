@@ -13,6 +13,7 @@ then
     git clone --depth 1 https://bitbucket.org/apetomate/blan-standard-linux.git /root/scripts/blan
 fi
 
+chmod -R +x /root/scripts/blan
 if test -f "/root/scripts/blan/std-linux/bootstrap.sh"
 then
     /root/scripts/blan/std-linux/bootstrap.sh
@@ -20,5 +21,4 @@ else
     echo "Cannot find bootstrap file. Aborting."
     exit 1
 fi
-
 # eof
