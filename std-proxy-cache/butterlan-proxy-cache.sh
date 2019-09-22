@@ -2,7 +2,7 @@
 
 OLDDIR="`pwd`"
 cd /root/scripts/blan
-git pull >> /dev/null
+git pull >> /dev/null 2>&1
 source /root/scripts/blan/common.inc
 checkHostname
 checkLockFile
