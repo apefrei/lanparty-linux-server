@@ -17,7 +17,7 @@ ______ _   _ _____ _____ ___________ _       ___   _   _
 echo "ENABLE_TELEGRAF=yes" > /root/.stdcfg
 echo "INFLUX_IP=192.168.88.8" >> /root/.stdcfg
 echo "INFLUX_ADMIN=dbadmin" >> /root/.stdcfg
-echo "INFLUX_PW=<password>" >> /root/.stdcfg
+echo "INFLUX_PW=password" >> /root/.stdcfg
 ```
 ##### 2) Kickstart the installation
 ```shell
