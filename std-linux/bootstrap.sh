@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! test -f "/root/.lxcfg"
+if ! test -f "/root/.stdcfg"
 then
     echo "### Cannot find the configuration file: $CFGFILE"
     echo ""

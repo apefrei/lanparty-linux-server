@@ -11,7 +11,7 @@ ENABLE_TELEGRAF=
 INFLUX_IP=
 INFLUX_ADMIN=
 INFLUX_PW=
-CFGFILE="/root/.lxcfg"
+CFGFILE="/root/.stdcfg"
 if test -f "$CFGFILE"
 then
     source "$CFGFILE"

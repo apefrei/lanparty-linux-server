@@ -13,16 +13,18 @@ ______ _   _ _____ _____ ___________ _       ___   _   _
 
 ## Install
 ##### 1) Create config file
-echo "ENABLE_TELEGRAF=yes" > /root/.lxcfg
-echo "INFLUX_IP=192.168.88.8" >> /root/.lxcfg
-echo "INFLUX_ADMIN=dbadmin" >> /root/.lxcfg
-echo "INFLUX_PW=<password>" >> /root/.lxcfg
+```shell
+echo "ENABLE_TELEGRAF=yes" > /root/.stdcfg
+echo "INFLUX_IP=192.168.88.8" >> /root/.stdcfg
+echo "INFLUX_ADMIN=dbadmin" >> /root/.stdcfg
+echo "INFLUX_PW=<password>" >> /root/.stdcfg
+```
 ##### 2) Kickstart the installation
 ```shell
 bash <(curl -s https://bitbucket.org/apetomate/blan-standard-linux/raw/master/kickstart-butterlan-linux.sh)
 ```
 ## Components
-### Nginx High-Performance Proxy Cache for Game-Downloaders
+### [A] Nginx High-Performance Proxy Cache for Game-Downloaders
 Automated installation of NGINX and all required components and configurations
 ##### 1) Requirements
 * Fedora 30 Linux Server Edition
