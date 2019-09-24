@@ -1,5 +1,19 @@
 #!/bin/bash
 
+if ! test -f "/root/.lxcfg"
+then
+    echo "### Cannot find the configuration file: $CFGFILE"
+    echo ""
+    echo "    Missing configuration:"
+    echo ""
+    echo "        ENABLE_TELEGRAF=yes                # Enable Telegraf Service"
+    echo "        INFLUX_IP=<ipv4>                   # IP of INFLUXDB Service"
+    echo "        INFLUX_ADMIN=<username>            # Username of INFLUXDB Admin"
+    echo "        INFLUX_PW=<password>               # Password of INFLUXDB Admin"
+    echo ""
+    exit 1
+fi
+
 source /root/scripts/blan/common.inc
 checkHostname
 checkLockFile

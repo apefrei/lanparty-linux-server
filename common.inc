@@ -7,6 +7,16 @@ PRX_PATH=/root/scripts/blan/std-proxy-cache
 
 HNFULL="`hostnamectl status | sed -r -n 's/^.*Static hostname: (.*)$/\1/p'`"
 
+ENABLE_TELEGRAF=
+INFLUX_IP=
+INFLUX_ADMIN=
+INFLUX_PW=
+CFGFILE="/root/.lxcfg"
+if test -f "$CFGFILE"
+then
+    source "$CFGFILE"
+fi
+
 if test "$0" = "-bash"
 then
     SCRIPTID="`uuid`"
