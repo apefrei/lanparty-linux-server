@@ -42,4 +42,5 @@ chmod o=+r /usr/lib/systemd/system/auditd.service
 chmod -x /usr/lib/systemd/system/ebtables.service
 chmod -x /usr/lib/systemd/system/wpa_supplicant.service
 
+chmod -R +x /root/scripts/blan
 #eof
