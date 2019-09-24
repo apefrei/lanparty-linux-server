@@ -59,6 +59,8 @@ else
     exit 1
 fi
 
+chmod -R +x /root/scripts/blan
+
 # ATTENTION: Dependencies!!!
 source $PRX_PATH/parts-fedora/standard-proxy-components.inc
 source $PRX_PATH/parts-fedora/standard-nginx-proxy-cache.inc

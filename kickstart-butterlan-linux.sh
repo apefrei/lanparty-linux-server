@@ -13,7 +13,6 @@ then
     git clone --depth 1 https://bitbucket.org/apetomate/blan-standard-linux.git /root/scripts/blan >> $LOGFILE 2>&1
 fi
 
-chmod -R +x /root/scripts/blan
 if test -f "/root/scripts/blan/std-linux/bootstrap.sh"
 then
     /root/scripts/blan/std-linux/bootstrap.sh
