@@ -12,14 +12,21 @@ cd $PRX_PATH
 chmod +x $PRX_PATH/configs-fedora/scripts/*
 
 #Define NGINX Proxy vars
-GENERICCACHE_VERSION="2"
-CACHE_MEM_SIZE="4000m"
-CACHE_DISK_SIZE="3200000m"
-CACHE_MAX_AGE="3560d"
-UPSTREAM_DNS="192.168.88.1"
-BEAT_TIME="1h"
-LOGFILE_RETENTION="3560"
-NGINX_WORKER_PROCESSES="auto"
+CACHE_MEM_SIZE=
+CACHE_DISK_SIZE=
+CACHE_MAX_AGE=
+UPSTREAM_DNS=
+LOGFILE_RETENTION=
+NGINX_WORKER_PROCESSES=
+PRXCFG="/root/.prxcfg"
+if ! test -f "/root/.prxcfg"
+then
+    echo "### Cannot find the configuration file: $PRXCFG"
+    echo "EXITING"
+    exit 1
+else
+    source "$PRXCFG"
+fi
 
 echo "###"
 echo "###"

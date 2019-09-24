@@ -11,10 +11,10 @@ ENABLE_TELEGRAF=
 INFLUX_IP=
 INFLUX_ADMIN=
 INFLUX_PW=
-CFGFILE="/root/.stdcfg"
-if test -f "$CFGFILE"
+STDCFG="/root/.stdcfg"
+if test -f "$STDCFG"
 then
-    source "$CFGFILE"
+    source "$STDCFG"
 fi
 
 if test "$0" = "-bash"

@@ -2,7 +2,7 @@
 
 if ! test -f "/root/.stdcfg"
 then
-    echo "### Cannot find the configuration file: $CFGFILE"
+    echo "### Cannot find the configuration file: $STDCFG"
     echo ""
     echo "    Missing configuration:"
     echo ""

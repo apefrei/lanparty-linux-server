@@ -31,7 +31,15 @@ Automated installation of NGINX and all required components and configurations
 * Two additional storages mounted at /data/storage1 and /data/storage2, for hash-split Nginx caching
 * Fixed IP-Address
 ##### 2) Configuration
-* Change variables to your needs: /root/scripts/blan/std-proxy-cache/butterlan-proxy-cache.sh
+```shell
+echo 'CACHE_MEM_SIZE="4000m"' > /root/.prxcfg
+echo 'CACHE_DISK_SIZE="3200000m"' >> /root/.prxcfg
+echo 'CACHE_MAX_AGE="3560d"' >> /root/.prxcfg
+echo 'UPSTREAM_DNS="192.168.88.1"' >> /root/.prxcfg
+echo 'LOGFILE_RETENTION="3560"' >> /root/.prxcfg
+echo 'NGINX_WORKER_PROCESSES="auto"' >> /root/.prxcfg
+```
+* CACHE_MEM_SIZE is the keys_zone memory cache only (do not allocate all your RAM)
 * CACHE_DISK_SIZE will be splitted between storage1 and storage2 (count those two together)
 ##### 2) Install
 ```shell
