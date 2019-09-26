@@ -11,7 +11,7 @@ touch $LOGFILE
 cd $DKR_PATH
 
 #Define DOCKER vars
-PORTAINER_PORT=
+PORTAINER_PW=
 DKRCFG="/root/.dkrcfg"
 if ! test -f "/root/.dkrcfg"
 then

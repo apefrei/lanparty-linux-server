@@ -9,24 +9,28 @@ ______ _   _ _____ _____ ___________ _       ___   _   _
 ## What is this for?
 
 * Simple Standard Fedora Linux Installation
-* Less Simple Service Components for LAN Party Servers
+* Service Components for LAN Party Servers
 
 ## Install
-##### 1) Create config file
+##### 1) Requirements
+* Fedora 30 Linux Server Edition
+* Fixed IP-Address
+##### 2) Create config file
 ```shell
 echo "ENABLE_TELEGRAF=yes" > /root/.stdcfg
 echo "INFLUX_IP=192.168.88.8" >> /root/.stdcfg
 echo "INFLUX_ADMIN=dbadmin" >> /root/.stdcfg
 echo "INFLUX_PW=password" >> /root/.stdcfg
 ```
-##### 2) Kickstart the installation
+##### 3) Kickstart the installation
 ```shell
 bash <(curl -s https://bitbucket.org/apetomate/blan-standard-linux/raw/master/kickstart-butterlan-linux.sh)
 ```
 ## Components
-### [A] Nginx High-Performance Proxy Cache for Game-Downloaders
+### [A] Nginx High-Performance Proxy Cache for Game-Download-Agents
 Automated installation of NGINX and all required components and configurations
 ##### 1) Requirements
+* Bootstrapped with Kickstart Script
 * Fedora 30 Linux Server Edition
 * Two additional storages mounted at /data/storage1 and /data/storage2, for hash-split Nginx caching
 * Fixed IP-Address
@@ -44,4 +48,18 @@ echo 'NGINX_WORKER_PROCESSES="auto"' >> /root/.prxcfg
 ##### 2) Install
 ```shell
 /root/scripts/blan/std-proxy-cache/butterlan-proxy-cache.sh
+```
+### [B] Standard Docker Environment with Butterlan Templates
+Automated installation of DOCKER and PORTAINER with Butterlan Templates
+##### 1) Requirements
+* Fedora 30 Linux Server Edition
+* Bootstrapped with Kickstart Script
+* Fixed IP-Address
+##### 2) Configuration
+```shell
+echo 'PORTAINER_PW="password"' > /root/.dkrcfg
+```
+##### 2) Install
+```shell
+/root/scripts/blan/std-docker/butterlan-docker.sh
 ```
