@@ -67,7 +67,7 @@ source $PRX_PATH/parts-fedora/standard-nginx-telegraf.inc
 
 ###
 echo "### Finishing installation"
-echo "alias logtail=\"cd /var/log ; tail -f cron messages secure nginx/error.log /data/*/logs/*.log\"" >> /root/.bashrc_local
+echo "alias logtail=\"cd /var/log ; tail -f cron messages secure /data/*/logs/*.log\"" >> /root/.bashrc_local
 echo ""
 echo ""
 
