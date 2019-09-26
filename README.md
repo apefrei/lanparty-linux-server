@@ -15,13 +15,14 @@ ______ _   _ _____ _____ ___________ _       ___   _   _
 ##### 1) Requirements
 * Fedora 30 Linux Server Edition
 * Fixed IP-Address
-##### 2) Create config file
+##### 2) Configuration
 ```shell
 echo "ENABLE_TELEGRAF=yes" > /root/.stdcfg
 echo "INFLUX_IP=192.168.88.8" >> /root/.stdcfg
 echo "INFLUX_ADMIN=dbadmin" >> /root/.stdcfg
 echo "INFLUX_PW=password" >> /root/.stdcfg
 ```
+* If you do not use stat collecting by influxdb, set ENABLE_TELEGRAF=no
 ##### 3) Kickstart the installation
 ```shell
 bash <(curl -s https://bitbucket.org/apetomate/blan-standard-linux/raw/master/kickstart-butterlan-linux.sh)
