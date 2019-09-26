@@ -8,10 +8,11 @@ echo "### Installing base packages"
 dnf -y install deltarpm >> $LOGFILE 2>&1
 dnf -y upgrade >> $LOGFILE 2>&1
 dnf -y update ca-certificates >> $LOGFILE 2>&1
+dnf -y remove python
 dnf -y install acpid apg bzip2 htop nano nmap nload net-tools rsync screen symlinks \
-               tcpdump telnet traceroute tree unhide unrtf unzip uuid vim-vimoutliner \
-               w3m wget whois readline-devel openssl-devel bash-completion pciutils virt-what \
-               sshfs yum-utils sysstat dbus cpuid >> $LOGFILE 2>&1
+               tcpdump telnet traceroute tree unzip uuid pciutils \
+               wget whois readline-devel openssl-devel bash-completion \
+               sshfs sysstat dbus >> $LOGFILE 2>&1
 
 echo "### Setting up environment"
 cp $STD_PATH/configs-fedora/.bashrc /root/
@@ -24,7 +25,6 @@ source $STD_PATH/parts-fedora/standard-security.inc
 source $STD_PATH/parts-fedora/standard-ssh.inc
 source $STD_PATH/parts-fedora/standard-ntp.inc
 source $STD_PATH/parts-fedora/standard-snmp.inc
-source $STD_PATH/parts-fedora/standard-sysdefaults.inc
 source $STD_PATH/parts-fedora/standard-tuning.inc
 source $STD_PATH/parts-fedora/standard-python3.inc
 source $STD_PATH/parts-fedora/standard-telegraf.inc

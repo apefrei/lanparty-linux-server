@@ -1,2 +1,5 @@
 echo "### Setting up python3"
-dnf -y install python3 python3-simplejson python3-gobject python3-dnf  >> $LOGFILE 2>&1
+dnf -y install python3 python3-simplejson python3-gobject python3-dnf python3-pip python3-setuptools python3-libs >> $LOGFILE 2>&1
+
+alternatives --install /usr/bin/python python /usr/bin/python3 1
+alternatives --install /usr/bin/pip pip /usr/bin/pip3 1

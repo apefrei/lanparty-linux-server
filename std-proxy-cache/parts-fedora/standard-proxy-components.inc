@@ -1,3 +1,3 @@
 echo "### Installing base packages"
 
-dnf -y install jq inotify-tools >> $LOGFILE 2>&1
+dnf -y install jq >> $LOGFILE 2>&1
