@@ -23,5 +23,8 @@ if [ "$ENABLE_TELEGRAF" == "yes" ]
 then
     systemctl enable telegraf
     systemctl start telegraf
+else
+    systemctl disable telegraf
+    systemctl stop telegraf
 fi
 #eof

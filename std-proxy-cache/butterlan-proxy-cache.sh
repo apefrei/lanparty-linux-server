@@ -9,7 +9,7 @@ checkLockFile
 checkBootstrapped
 touch $LOGFILE
 cd $PRX_PATH
-chmod +x $PRX_PATH/configs-fedora/scripts/*
+chmod +x $PRX_PATH/scripts/*
 
 #Define NGINX Proxy vars
 CACHE_MEM_SIZE=
@@ -70,5 +70,7 @@ echo "### Finishing installation"
 echo "alias logtail=\"cd /var/log ; tail -f cron messages secure nginx/error.log /data/*/logs/*.log\"" >> /root/.bashrc_local
 echo ""
 echo ""
-echo "PLEASE REBOOT SERVER NOW"
+
+markAsDone
+
 #eof

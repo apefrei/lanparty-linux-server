@@ -35,4 +35,6 @@ echo "    Logfile: $LOGFILE"
 # ATTENTION: Dependencies!!!
 source $DKR_PATH/parts-fedora/standard-docker-basics.inc
 source $DKR_PATH/parts-fedora/standard-docker-telegraf.inc
+
+markAsDone
 #eof
