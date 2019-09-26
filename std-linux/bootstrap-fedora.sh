@@ -8,7 +8,6 @@ echo "### Installing base packages"
 dnf -y install deltarpm >> $LOGFILE 2>&1
 dnf -y upgrade >> $LOGFILE 2>&1
 dnf -y update ca-certificates >> $LOGFILE 2>&1
-dnf -y remove python
 dnf -y install acpid apg bzip2 htop nano nmap nload net-tools rsync screen symlinks \
                tcpdump telnet traceroute tree unzip uuid pciutils \
                wget whois readline-devel openssl-devel bash-completion \

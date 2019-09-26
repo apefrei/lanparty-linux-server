@@ -1,6 +1,6 @@
-echo "### Setting up TELEGRAF for nginx"
+echo "### Setting up TELEGRAF for docker"
 
-cp -R $PRX_PATH/configs-fedora/etc-telegraf/telegraf.d/std-proxy-cache.conf /etc/telegraf/telegraf.d/std-proxy-cache.conf
+cp -R $DKR_PATH/configs-fedora/etc-telegraf/telegraf.d/std-docker.conf /etc/telegraf/telegraf.d/std-docker.conf
 
 if [ "$ENABLE_TELEGRAF" == "yes" ]
 then

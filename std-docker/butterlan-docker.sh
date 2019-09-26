@@ -10,6 +10,17 @@ checkBootstrapped
 touch $LOGFILE
 cd $DKR_PATH
 
+#Define DOCKER vars
+PORTAINER_PORT=
+DKRCFG="/root/.dkrcfg"
+if ! test -f "/root/.dkrcfg"
+then
+    echo "### Cannot find the configuration file: $DKRCFG"
+    echo "EXITING"
+    exit 1
+else
+    source "$DKRCFG"
+fi
 
 
 echo "###"
