@@ -48,5 +48,5 @@ echo "### Finishing installation"
 echo "alias logtail=\"cd /var/log ; tail -f cron messages secure \"" >> /root/.bashrc_local
 echo ""
 echo ""
-echo "PLEASE RESTART SERVER NOW"
+echo "PLEASE REBOOT SERVER NOW"
 #eof

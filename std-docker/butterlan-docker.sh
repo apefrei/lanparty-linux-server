@@ -29,7 +29,7 @@ echo "###"
 echo "###"
 echo
 
-echo "### Standard setup for proy cache"
+echo "### Standard setup for docker environment"
 echo "    Logfile: $LOGFILE"
 
 # ATTENTION: Dependencies!!!

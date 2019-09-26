@@ -1,6 +1,6 @@
 echo "### Setting up DOCKER basic components"
 
-dnf -y config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+dnf -y config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo >> $LOGFILE 2>&1
 pip install docker >> $LOGFILE 2>&1
 dnf -y install docker-ce cockpit-docker httpd-tools >> $LOGFILE 2>&1
 
