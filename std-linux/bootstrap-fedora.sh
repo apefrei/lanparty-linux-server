@@ -19,6 +19,7 @@ cp $STD_PATH/configs-fedora/.screenrc /root/
 cp $STD_PATH/configs-fedora/.vimrc /root/
 touch /root/.bashrc_local
 mkdir /root/{dist,build,temp}
+chmod -R +x /root/scripts/blan
 
 source $STD_PATH/parts-fedora/standard-security.inc
 source $STD_PATH/parts-fedora/standard-ssh.inc
@@ -40,8 +41,6 @@ dnf -y remove polkit polkit-pkla-compat >> $LOGFILE 2>&1
 chmod o=+r /usr/lib/systemd/system/auditd.service
 chmod -x /usr/lib/systemd/system/ebtables.service
 chmod -x /usr/lib/systemd/system/wpa_supplicant.service
-
-chmod -R +x /root/scripts/blan
 
 ###
 echo "### Finishing installation"
