@@ -7,13 +7,13 @@ dnf -y install nginx >> $LOGFILE 2>&1
 dnf -y install gcc gcc-c++ make glibc-devel libaio-devel \
                pcre-devel zlib-devel openssl-devel glibc \
                libxslt libxslt-devel libxml2 libxml2-devel libXpm-devel \
-               glibc-headers libevent libpthread.so.0 gd-devel \
-               libcrypt.so.1 libstdc++.so.6 librt.so.1 libm.so.6 \
-               libssl.so.10 libcrypto.so.10 libdl.so.2 gperftools-devel \
-               libz.so.1 libgcc_s.so.1 libc.so.6 /lib64/ld-linux-x86-64.so.2 \
-               libfreebl3.so libgssapi_krb5.so.2 libkrb5.so.3 libcom_err.so.2 \
-               libk5crypto.so.3 libkrb5support.so.0 libkeyutils.so.1 \
-               libresolv.so.2 libselinux.so.1 >> $LOGFILE 2>&1
+               glibc-headers libevent libpthread gd-devel \
+               libcrypt libstdc++ librt libm \
+               libssl libcrypto libdl gperftools-devel \
+               libz libgcc_s libc /lib64/ld-linux-x86-64 \
+               libfreebl3 libgssapi_krb5 libkrb5 libcom_err \
+               libk5crypto libkrb5support libkeyutils \
+               libresolv libselinux >> $LOGFILE 2>&1
 
 command="nginx -v"
 nginxv=$( ${command} 2>&1 )
@@ -45,7 +45,7 @@ cd $TEMP_PATH/nginx-$nginxlocal
 --with-http_stub_status_module --with-http_auth_request_module \
 --with-mail=dynamic --with-mail_ssl_module --with-pcre --with-pcre-jit --with-stream \
 --with-stream_ssl_module --with-stream_ssl_preread_module --with-google_perftools_module --with-debug \
---with-cc-opt='-O2 -g -pipe -Wall -Werror=format-security -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -m64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection' >> $LOGFILE 2>&1
+--with-cc-opt='-O2 -g -pipe -Wall -Werror=format-security -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -m64 -march=coffeelake -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection' >> $LOGFILE 2>&1
 
 make >> $LOGFILE 2>&1
 make install >> $LOGFILE 2>&1
