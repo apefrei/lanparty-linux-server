@@ -7,13 +7,9 @@ dnf -y install nginx >> $LOGFILE 2>&1
 dnf -y install gcc gcc-c++ make glibc-devel libaio-devel \
                pcre-devel zlib-devel openssl-devel glibc \
                libxslt libxslt-devel libxml2 libxml2-devel libXpm-devel \
-               glibc-headers libevent libpthread gd-devel \
-               libcrypt libstdc++ librt libm \
-               libssl libcrypto libdl gperftools-devel \
-               libz libgcc_s libc /lib64/ld-linux-x86-64 \
-               libfreebl3 libgssapi_krb5 libkrb5 libcom_err \
-               libk5crypto libkrb5support libkeyutils \
-               libresolv libselinux >> $LOGFILE 2>&1
+               glibc-headers libevent gd-devel \
+               libcrypt libstdc++ gperftools-devel \
+               libcom_err libselinux >> $LOGFILE 2>&1
 
 command="nginx -v"
 nginxv=$( ${command} 2>&1 )
