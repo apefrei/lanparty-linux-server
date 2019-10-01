@@ -41,7 +41,7 @@ cd $TEMP_PATH/nginx-$nginxlocal
 --with-http_stub_status_module --with-http_auth_request_module \
 --with-mail=dynamic --with-mail_ssl_module --with-pcre --with-pcre-jit --with-stream \
 --with-stream_ssl_module --with-stream_ssl_preread_module --with-google_perftools_module --with-debug \
---with-cc-opt='-O2 -g -pipe -Wall -Werror=format-security -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -m64 -march=coffeelake -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection' >> $LOGFILE 2>&1
+--with-cc-opt='-O2 -g -pipe -Wall -Werror=format-security -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -m64 -mtune=intel -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection' >> $LOGFILE 2>&1
 
 make >> $LOGFILE 2>&1
 make install >> $LOGFILE 2>&1
