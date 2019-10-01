@@ -11,7 +11,7 @@ dnf -y update ca-certificates >> $LOGFILE 2>&1
 dnf -y install acpid apg bzip2 htop nano nmap nload net-tools rsync screen symlinks \
                tcpdump telnet traceroute tree unzip uuid pciutils \
                wget whois readline-devel openssl-devel bash-completion \
-               sshfs sysstat dbus vim >> $LOGFILE 2>&1
+               sshfs sysstat dbus vim iperf iftop >> $LOGFILE 2>&1
 
 echo "### Setting up environment"
 cp $STD_PATH/configs-fedora/.bashrc /root/
