@@ -44,14 +44,14 @@ mkdir -m 755 -p /data/local/info
 mkdir -m 755 -p /data/local/cachedomains
 mkdir -m 755 -p /tmp/nginx/
 
-if test "/data/storage1"
+if [ -d "/data/storage1" ]
 then
     mkdir -m 755 -p /data/storage1/cache
 else
     echo "Cannot find cache folder /data/storage1. This setup is made for two identical disk storages"
     exit 1
 fi
-if test "/data/storage2"
+if [ -d "/data/storage1" ]
 then
     mkdir -m 755 -p /data/storage2/cache
 else
