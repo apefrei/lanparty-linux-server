@@ -21,10 +21,10 @@ sed -r -i "s/(.*)INFLUX_PW(.*)$/\1$INFLUX_PW\2/g" /etc/telegraf/telegraf.conf
 
 if [ "$ENABLE_TELEGRAF" == "yes" ]
 then
-    systemctl enable telegraf
+    systemctl enable telegraf >> $LOGFILE 2>&1
     systemctl start telegraf
 else
-    systemctl disable telegraf
+    systemctl disable telegraf >> $LOGFILE 2>&1
     systemctl stop telegraf
 fi
 #eof
