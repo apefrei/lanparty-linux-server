@@ -5,6 +5,7 @@
 STD_PATH=/root/scripts/blan/std-linux
 PRX_PATH=/root/scripts/blan/std-proxy-cache
 DKR_PATH=/root/scripts/blan/std-docker
+GSM_PATH=/root/scripts/blan/std-linuxgsm
 
 HNFULL="`hostnamectl status | sed -r -n 's/^.*Static hostname: (.*)$/\1/p'`"
 

@@ -1,15 +1,21 @@
-```shell
-______ _   _ _____ _____ ___________ _       ___   _   _
-| ___ \ | | |_   _|_   _|  ___| ___ \ |     / _ \ | \ | |
-| |_/ / | | | | |   | | | |__ | |_/ / |    / /_\ \|  \| |
-| ___ \ | | | | |   | | |  __||    /| |    |  _  || . ` |
-| |_/ / |_| | | |   | | | |___| |\ \| |____| | | || |\  |
-\____/ \___/  \_/   \_/ \____/\_| \_\_____/\_| |_/\_| \_/
-```
-## What is this for?
+##### ``______ _   _ _____ _____ ___________ _       ___   _   _ ``
+##### ``| ___ \ | | |_   _|_   _|  ___| ___ \ |     / _ \ | \ | |``
+##### ``| |_/ / | | | | |   | | | |__ | |_/ / |    / /_\ \|  \| |``
+##### ``| ___ \ | | | | |   | | |  __||    /| |    |  _  || . ` |``
+##### ``| |_/ / |_| | | |   | | | |___| |\ \| |____| | | || |\  |``
+##### ``\____/ \___/  \_/   \_/ \____/\_| \_\_____/\_| |_/\_| \_/``
+
+## What's this for?
 
 * Simple Standard Fedora Linux Installation
 * Service Components for LAN Party Servers
+
+## Inspiration
+
+This project is inspired by the phenomenal work of "https://github.com/lancachenet" and "https://github.com/uklans"
+
+* Elements of those script are taken from the "https://github.com/lancachenet" project
+* The cache domains are maintained by the "https://github.com/uklans" project
 
 ## Install
 ##### 1) Requirements
@@ -25,7 +31,7 @@ echo "INFLUX_PW=password" >> /root/.stdcfg
 * If you do not use stat collecting by influxdb, set ENABLE_TELEGRAF=no
 ##### 3) Kickstart the installation
 ```shell
-bash <(curl -s https://bitbucket.org/apetomate/blan-standard-linux/raw/master/kickstart-butterlan-linux.sh)
+bash <(curl -s https://bitbucket.org/apetomate/blan-standard-linux/raw/master/kickstart-lanparty-linux.sh)
 ```
 ## Components
 ### [A] Nginx High-Performance Proxy Cache for Game-Download-Agents
@@ -48,7 +54,7 @@ echo 'NGINX_WORKER_PROCESSES="auto"' >> /root/.prxcfg
 * CACHE_DISK_SIZE will be splitted between storage1 and storage2 (count those two together)
 ##### 2) Install
 ```shell
-/root/scripts/blan/std-proxy-cache/butterlan-proxy-cache.sh
+/root/scripts/blan/std-proxy-cache/lanparty-proxy-cache.sh
 ```
 ### [B] Standard Docker Environment with Butterlan Templates
 Automated installation of DOCKER and PORTAINER with Butterlan Templates
@@ -62,5 +68,5 @@ echo 'PORTAINER_PW="password"' > /root/.dkrcfg
 ```
 ##### 2) Install
 ```shell
-/root/scripts/blan/std-docker/butterlan-docker.sh
+/root/scripts/blan/std-docker/lanparty-docker.sh
 ```
