@@ -30,7 +30,7 @@ cd $GSM_PATH
 rm -rf $TEMP_PATH
 
 adduser $GAMESERVER
-THEPASS="`apg $APGOPTS`"
+THEPASS="`xkcdpass $XKCDOPTS`"
 echo "$THEPASS" | passwd --stdin "$GAMESERVER"
 passwordInfo "Gameserver-$GAMESERVER" ""$GAMESERVER" ""$THEPASS"
 

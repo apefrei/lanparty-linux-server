@@ -40,6 +40,7 @@ LOCKFILE="$LOCKDIR/$SCRIPTID.done"
 LOCKFILE_BSTRAP="$LOCKDIR/bootstrap.done"
 LOGFILE="$LOGDIR/$SCRIPTID-`date +%Y%m%d-%H%M`.log"
 APGOPTS="-n1 -m15 -x15 -a0 -q -M CL"
+XKCDOPTS="--min 3 --max 8 --numwords 3 --valid-chars=[a-z] --delimiter= --case=first"
 MACHINE_TYPE="physical"
 MACHINE_INFO="n/a"
 
