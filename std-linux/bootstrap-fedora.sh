@@ -9,7 +9,7 @@ dnf -y install deltarpm >> $LOGFILE 2>&1
 dnf -y upgrade >> $LOGFILE 2>&1
 dnf -y update ca-certificates >> $LOGFILE 2>&1
 dnf -y install acpid apg bzip2 gzip unzip htop nano nmap nload net-tools rsync screen symlinks \
-               tcpdump telnet traceroute tree unzip uuid pciutils \
+               tcpdump telnet traceroute tree unzip uuid pciutils nvme-cli \
                wget curl whois readline-devel openssl-devel bash-completion \
                sshfs sysstat dbus vim iperf iftop >> $LOGFILE 2>&1
 
