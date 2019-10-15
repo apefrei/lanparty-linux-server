@@ -29,10 +29,27 @@ fi
 cd $GSM_PATH
 rm -rf $TEMP_PATH
 
+#create user environment
 adduser $GAMESERVER
 THEPASS="`xkcdpass $XKCDOPTS`"
 echo "$THEPASS" | passwd --stdin "$GAMESERVER"
 passwordInfo "Gameserver-$GAMESERVER" ""$GAMESERVER" ""$THEPASS"
+
+#create runscript
+available_server_name=$( tail -n +2 "serverlist.csv" | awk -F "," '{print $3}' )
+SCRIPTPATH=/etc/systemd/system/$GAMESERVER.service
+cp $GSM_PATH/configs-fedora/GAMESERVER.service $SCRIPTPATH
+
+GSMDESCRIPTION=$available_server_name
+GSMUSER=$GAMESERVER
+GSMDIR=$GAMESERVER
+GSMSCRIPT=$GAMESERVER
+
+set -e
+sed -i "s/GSMDESCRIPTION/${GSMDESCRIPTION}/" $SCRIPTPATH
+sed -i "s/GSMUSER/${GSMUSER}/" $SCRIPTPATH
+sed -i "s/GSMDIR/${GSMDIR}/" $SCRIPTPATH
+sed -i "s/GSMSCRIPT/${GSMSCRIPT}/" $SCRIPTPATH
 
 
 USRHOME=/home/$GAMESERVER

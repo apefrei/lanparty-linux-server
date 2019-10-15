@@ -11,8 +11,12 @@ touch $LOGFILE
 cd $GSM_PATH
 chmod +x $GSM_PATH/scripts/*
 
-#configure gameserver
+#configure gameserver vars
 GAMESERVER=""
+GSMDESCRIPTION=""
+GSMUSER=""
+GSMDIR=""
+GSMSCRIPT=""
 
 echo "###"
 echo "###"
@@ -28,7 +32,10 @@ source $GSM_PATH/parts-fedora/standard-gameserver-environment
 
 ###
 echo "### Finishing installation"
-
-markAsDone
+echo
+echo
+echo "The LinuxGSM environment for ${green}$GAMESREVER${nc} is now created. You may continue manually"
+echo
+echo "`date`" > "$LOCKFILE_BSTRAP"
 
 #eof

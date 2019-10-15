@@ -7,6 +7,6 @@ cd $GSM_PATH
 GAMESERVER=""
 
 # ATTENTION: Dependencies!!!
-source $GSM_PATH/parts-fedora/standard-gameserver-environment
+source $GSM_PATH/parts-fedora/standard-gameserver-environment.inc
 
 #eof
