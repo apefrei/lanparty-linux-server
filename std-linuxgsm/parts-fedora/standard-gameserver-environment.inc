@@ -32,7 +32,7 @@ fi
 cd $GSM_PATH
 rm -rf $TEMP_PATH
 
-#create user
+#create user and privileges
 adduser $GAMESERVER  >> $LOGFILE 2>&1
 THEPASS="`apg $APGOPTS`"  >> $LOGFILE 2>&1
 echo "$THEPASS" | passwd --stdin "$GAMESERVER"  >> $LOGFILE 2>&1
@@ -40,13 +40,13 @@ usermod -aG wheel $GAMESERVER
 
 #show password for dep install (just in case)
 echo
-echo "###"
+echo "### ###"
 echo
 echo -e "New user Password: ${red}$THEPASS${nc}"
 echo
 echo "you might need this password for depency installation, so write it down"
 echo
-echo "###"
+echo "### ###"
 echo
 read -p "Press enter to continue"
 
