@@ -40,10 +40,15 @@ echo "$THEPASS" | passwd --stdin "$GAMESERVER"  >> $LOGFILE 2>&1
 #show password for dep install (just in case)
 echo "###"
 echo
-echo "New user Password: ${red}$THEPASS${nc}"
+echo -e "New user Password: ${red}$THEPASS${nc}"
+echo
+echo "you might need this password for depency installation, so write it down"
 echo
 echo "###"
+echo
+read -p "Press enter to continue"
 
+#install basic linuxgsm server scripts
 USRHOME=/home/$GAMESERVER
 cd $USRHOME
 sudo -u $GAMESERVER wget -O $USRHOME/linuxgsm.sh https://linuxgsm.sh  >> $LOGFILE 2>&1
@@ -51,5 +56,5 @@ sudo -u $GAMESERVER chmod +x $USRHOME/linuxgsm.sh  >> $LOGFILE 2>&1
 sudo -u $GAMESERVER $USRHOME/linuxgsm.sh $GAMESERVER  >> $LOGFILE 2>&1
 sudo -u $GAMESERVER $USRHOME/$GAMESERVER install
 
-echo
 passwordInfo "GAMESERVER: $GAMESERVER" "$GAMESERVER" "$THEPASS"
+#eof
