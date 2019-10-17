@@ -58,6 +58,6 @@ sudo -u $GAMESERVER chmod +x $USRHOME/linuxgsm.sh  >> $LOGFILE 2>&1
 sudo -u $GAMESERVER $USRHOME/linuxgsm.sh $GAMESERVER  >> $LOGFILE 2>&1
 sudo -u $GAMESERVER $USRHOME/$GAMESERVER install
 
-deluser $GAMESERVER wheel
+gpasswd -d $GAMESERVER wheel >> $LOGFILE 2>&1
 passwordInfo "GAMESERVER: $GAMESERVER" "$GAMESERVER" "$THEPASS"
 #eof
