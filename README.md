@@ -54,7 +54,7 @@ echo 'NGINX_WORKER_PROCESSES="auto"' >> /root/.prxcfg
 ```
 * CACHE_MEM_SIZE is the keys_zone memory cache only (do not allocate all your RAM)
 * CACHE_DISK_SIZE will be splitted between storage1 and storage2 (count those two together)
-##### 2) Install
+##### 3) Install
 ```shell
 /root/scripts/blan/std-proxy-cache/lanparty-proxy-cache.sh
 ```
@@ -68,7 +68,19 @@ Automated installation of DOCKER and PORTAINER with Butterlan Templates
 ```shell
 echo 'PORTAINER_PW="password"' > /root/.dkrcfg
 ```
-##### 2) Install
+##### 3) Install
 ```shell
 /root/scripts/blan/std-docker/lanparty-docker.sh
+```
+### [C] Standard LinuxGSM Environment
+Automated building of LinuxGSM environment for all gameservers (not tested on all games)
+##### 1) Requirements
+* Fedora 30 Linux Server Edition
+* Bootstrapped with Kickstart Script
+* Fixed IP-Address
+##### 2) Configuration
+There is no pre configuration. Therefore, the script depends on your userinput.
+##### 3) Install
+```shell
+/root/scripts/blan/std-linuxgsm/lanparty-linuxgsm.sh
 ```
