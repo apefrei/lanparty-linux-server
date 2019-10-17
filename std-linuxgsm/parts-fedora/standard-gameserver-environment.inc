@@ -1,11 +1,14 @@
 echo "### Chose your Gameserver"
 echo
 echo "What gameserver would you like to install?"
+echo
 echo "You'll find the list here: https://github.com/GameServerManagers/LinuxGSM/blob/master/lgsm/data/serverlist.csv"
 echo "Get your Steamserver-Token here: https://steamcommunity.com/dev/managegameservers"
+echo
 echo -e "Example: ${green}csgoserver${nc} - Counter-Strike: Global Offensive"
 echo -e "Example: ${green}fctrserver${nc} - Factorio"
 echo -e "Example: "${green}mcserver${nc}" - Minecraft"
+echo
 read -p "Gameserver: " GAMESERVER
 
 TEMP_PATH=$(mktemp -d)
@@ -40,4 +43,5 @@ sudo -u $GAMESERVER chmod +x $USRHOME/linuxgsm.sh  >> $LOGFILE 2>&1
 sudo -u $GAMESERVER $USRHOME/linuxgsm.sh $GAMESERVER  >> $LOGFILE 2>&1
 sudo -u $GAMESERVER $USRHOME/$GAMESERVER install
 
-passwordInfo "GAMESERVER-$GAMESERVER" "$GAMESERVER" "$THEPASS"
+echo
+passwordInfo "GAMESERVER: $GAMESERVER" "$GAMESERVER" "$THEPASS"

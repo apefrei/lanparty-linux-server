@@ -27,12 +27,14 @@ source $GSM_PATH/parts-fedora/standard-linuxgsm-components.inc
 source $GSM_PATH/parts-fedora/standard-gameserver-environment.inc
 
 ###
+echo
 echo "### Finishing installation"
 echo
 echo
 echo "The procedure has completed"
 echo "You can now manage your server"
 echo "more information on https://linuxgsm.com/lgsm/$GAMESERVER/"
+echo
 
 markAsDoneGSM
 

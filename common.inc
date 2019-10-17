@@ -134,7 +134,8 @@ function passwordInfo
     fi
 
     echo "$1  Username: $2  Password: $3     Address: $4" >> $PWDFILE
-    echo "    ATTENTON"
+    echo
+    echo "    ATTENTION"
     echo -e "    A Password has been generated for ${green}$1${nc}, please see in $PWDFILE"
     echo
 }
