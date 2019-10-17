@@ -21,7 +21,7 @@ if
 then
   echo
   echo
-  echo -e "Good choice! We're now proceeding with creating the ${green}$GAMESERVER${nc} environment"
+  echo -e "Proceeding with creating the ${green}$GAMESERVER${nc} environment"
 else
   echo -e "This Gameserver ${red}cannot be found${nc}"
   echo "Please recheck the list of possible choices: https://github.com/GameServerManagers/LinuxGSM/blob/master/lgsm/data/serverlist.csv"
@@ -36,8 +36,10 @@ rm -rf $TEMP_PATH
 adduser $GAMESERVER  >> $LOGFILE 2>&1
 THEPASS="`apg $APGOPTS`"  >> $LOGFILE 2>&1
 echo "$THEPASS" | passwd --stdin "$GAMESERVER"  >> $LOGFILE 2>&1
+usermod -aG wheel $GAMESERVER
 
 #show password for dep install (just in case)
+echo
 echo "###"
 echo
 echo -e "New user Password: ${red}$THEPASS${nc}"
