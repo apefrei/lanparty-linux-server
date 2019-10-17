@@ -8,9 +8,9 @@ DKR_PATH=/root/scripts/blan/std-docker
 GSM_PATH=/root/scripts/blan/std-linuxgsm
 
 # Colors
-red='\033[0;31m'
-green='\033[0;32m'
-nc='\033[0m'
+red="\033[0;31m"
+green="\033[0;32m"
+nc="\033[0m"
 
 HNFULL="`hostnamectl status | sed -r -n 's/^.*Static hostname: (.*)$/\1/p'`"
 
@@ -40,7 +40,6 @@ LOCKFILE="$LOCKDIR/$SCRIPTID.done"
 LOCKFILE_BSTRAP="$LOCKDIR/bootstrap.done"
 LOGFILE="$LOGDIR/$SCRIPTID-`date +%Y%m%d-%H%M`.log"
 APGOPTS="-n1 -m15 -x15 -a0 -q -M CL"
-XKCDOPTS="--min 3 --max 8 --numwords 3 --valid-chars=[a-z] --delimiter= --case=first"
 MACHINE_TYPE="physical"
 MACHINE_INFO="n/a"
 
@@ -81,6 +80,11 @@ function checkBootstrapped
         echo "Oops, you need to bootstrap first!"
         exit 1
     fi
+}
+
+function markAsDoneGSM
+{
+    echo "`date`" > "$LOCKFILE_BSTRAP"
 }
 
 function markAsDone
@@ -131,7 +135,7 @@ function passwordInfo
 
     echo "$1  Username: $2  Password: $3     Address: $4" >> $PWDFILE
     echo "    ATTENTON"
-    echo "    A Password has been generated for $1, please see in $PWDFILE"
+    echo -e "    A Password has been generated for ${green}$1${nc}, please see in $PWDFILE"
     echo
 }
 
