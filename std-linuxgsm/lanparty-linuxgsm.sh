@@ -24,7 +24,7 @@ echo "    Logfile: $LOGFILE"
 
 # ATTENTION: Dependencies!!!
 source $GSM_PATH/parts-fedora/standard-linuxgsm-components.inc
-source $GSM_PATH/parts-fedora/standard-gameserver-environment
+source $GSM_PATH/parts-fedora/standard-gameserver-environment.inc
 
 ###
 echo "### Finishing installation"
