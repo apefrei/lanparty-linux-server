@@ -32,9 +32,17 @@ fi
 cd $GSM_PATH
 rm -rf $TEMP_PATH
 
+#create user
 adduser $GAMESERVER  >> $LOGFILE 2>&1
 THEPASS="`apg $APGOPTS`"  >> $LOGFILE 2>&1
 echo "$THEPASS" | passwd --stdin "$GAMESERVER"  >> $LOGFILE 2>&1
+
+#show password for dep install (just in case)
+echo "###"
+echo
+echo "New user Password: ${red}$THEPASS${nc}"
+echo
+echo "###"
 
 USRHOME=/home/$GAMESERVER
 cd $USRHOME
