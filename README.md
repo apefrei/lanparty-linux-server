@@ -30,7 +30,7 @@ echo "INFLUX_IP=192.168.88.8" >> /root/.stdcfg
 echo "INFLUX_ADMIN=dbadmin" >> /root/.stdcfg
 echo "INFLUX_PW=password" >> /root/.stdcfg
 ```
-* If you do not use stat collecting by influxdb, set ENABLE_TELEGRAF=no
+* If you do not use stat collecting by influxdb, set ENABLE_TELEGRAF=no. You can enable the service later
 ##### 3) Kickstart the installation
 ```shell
 bash <(curl -s https://bitbucket.org/apetomate/blan-standard-linux/raw/master/kickstart-lanparty-linux.sh)
