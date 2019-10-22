@@ -1,9 +1,6 @@
 vbell on
 vbell_msg "   --- WUFF, WUFF ---   "
 
-#blankerprg cmatrix
-#idle 180
-
 nonblock on                 # If a window goes unresponsive, don't block the whole session waiting for it.
 nethack on                  # print wackier status messages
 startup_message off         # Turn off start message

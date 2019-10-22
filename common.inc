@@ -1,11 +1,11 @@
-#
+
 # Defaults & Helpers
 #
 
-STD_PATH=/root/scripts/blan/std-linux
-PRX_PATH=/root/scripts/blan/std-proxy-cache
-DKR_PATH=/root/scripts/blan/std-docker
-GSM_PATH=/root/scripts/blan/std-linuxgsm
+STD_PATH=/root/scripts/lanparty/std-linux
+PRX_PATH=/root/scripts/lanparty/std-proxy-cache
+DKR_PATH=/root/scripts/lanparty/std-docker
+GSM_PATH=/root/scripts/lanparty/std-linuxgsm
 
 # Colors
 red="\033[0;31m"
@@ -32,10 +32,10 @@ else
     SCRIPTID="`basename $0 | head -c -4`"
 fi
 
-TEMPDIR="/var/blan/tmp"
-LOCKDIR="/var/blan/lock"
-LOGDIR="/var/blan/log"
-STATEDIR="/var/blan/state"
+TEMPDIR="/var/lanparty/tmp"
+LOCKDIR="/var/lanparty/lock"
+LOGDIR="/var/lanparty/log"
+STATEDIR="/var/lanparty/state"
 LOCKFILE="$LOCKDIR/$SCRIPTID.done"
 LOCKFILE_BSTRAP="$LOCKDIR/bootstrap.done"
 LOGFILE="$LOGDIR/$SCRIPTID-`date +%Y%m%d-%H%M`.log"

@@ -19,7 +19,7 @@ cp $STD_PATH/configs-fedora/.screenrc /root/
 cp $STD_PATH/configs-fedora/.vimrc /root/
 touch /root/.bashrc_local
 mkdir /root/{dist,build,temp}
-chmod -R +x /root/scripts/blan
+chmod -R +x /root/scripts/lanparty
 
 source $STD_PATH/parts-fedora/standard-python3.inc
 source $STD_PATH/parts-fedora/standard-security.inc

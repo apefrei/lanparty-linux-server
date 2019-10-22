@@ -1,9 +1,9 @@
 #!/bin/bash
 
 OLDDIR="`pwd`"
-cd /root/scripts/blan
+cd /root/scripts/lanparty
 git pull >> /dev/null 2>&1
-source /root/scripts/blan/common.inc
+source /root/scripts/lanparty/common.inc
 checkHostname
 checkLockFile
 checkBootstrapped

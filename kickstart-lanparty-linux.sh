@@ -8,14 +8,14 @@ dnf -y install git > /dev/null 2>&1
 
 echo "### Checking out from GIT"
 test -d "/root/scripts" || mkdir -p $USERHOME/scripts
-if ! test -d /root/scripts/blan/.git
+if ! test -d /root/scripts/lanparty/.git
 then
-    git clone --depth 1 https://bitbucket.org/apetomate/blan-standard-linux.git /root/scripts/blan >> /dev/null 2>&1
+    git clone --depth 1 https://bitbucket.org/apetomate/lanparty-standard-linux.git /root/scripts/lanparty >> /dev/null 2>&1
 fi
 
-if test -f "/root/scripts/blan/std-linux/bootstrap.sh"
+if test -f "/root/scripts/lanparty/std-linux/bootstrap.sh"
 then
-    /root/scripts/blan/std-linux/bootstrap.sh
+    /root/scripts/lanparty/std-linux/bootstrap.sh
 else
     echo "Cannot find bootstrap file. Aborting."
     exit 1

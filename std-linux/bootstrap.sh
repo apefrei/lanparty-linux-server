@@ -14,7 +14,7 @@ then
     exit 1
 fi
 
-source /root/scripts/blan/common.inc
+source /root/scripts/lanparty/common.inc
 checkHostname
 checkLockFile
 touch $LOGFILE

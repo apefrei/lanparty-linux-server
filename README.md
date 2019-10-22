@@ -33,7 +33,7 @@ echo "INFLUX_PW=password" >> /root/.stdcfg
 * If you do not use stat collecting by influxdb, set ENABLE_TELEGRAF=no. You can enable the service later
 ##### 3) Kickstart the installation
 ```shell
-bash <(curl -s https://bitbucket.org/apetomate/blan-standard-linux/raw/master/kickstart-lanparty-linux.sh)
+bash <(curl -s https://bitbucket.org/apetomate/lanparty-standard-linux/raw/master/kickstart-lanparty-linux.sh)
 ```
 ## Components
 ### [A] Nginx High-Performance Proxy Cache for Game-Download-Agents
@@ -56,7 +56,7 @@ echo 'NGINX_WORKER_PROCESSES="auto"' >> /root/.prxcfg
 * CACHE_DISK_SIZE will be splitted between storage1 and storage2 (count those two together)
 ##### 3) Install
 ```shell
-/root/scripts/blan/std-proxy-cache/lanparty-proxy-cache.sh
+/root/scripts/lanparty/std-proxy-cache/lanparty-proxy-cache.sh
 ```
 ### [B] Standard Docker Environment with Butterlan Templates
 Automated installation of DOCKER and PORTAINER with Butterlan Templates
@@ -70,7 +70,7 @@ echo 'PORTAINER_PW="password"' > /root/.dkrcfg
 ```
 ##### 3) Install
 ```shell
-/root/scripts/blan/std-docker/lanparty-docker.sh
+/root/scripts/lanparty/std-docker/lanparty-docker.sh
 ```
 ### [C] Standard LinuxGSM Environment
 Automated building of LinuxGSM environment for all gameservers (not tested on all games)
@@ -82,5 +82,5 @@ Automated building of LinuxGSM environment for all gameservers (not tested on al
 There is no pre configuration. Therefore, the script depends on your userinput.
 ##### 3) Install
 ```shell
-/root/scripts/blan/std-linuxgsm/lanparty-linuxgsm.sh
+/root/scripts/lanparty/std-linuxgsm/lanparty-linuxgsm.sh
 ```

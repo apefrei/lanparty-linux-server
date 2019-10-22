@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /root/scripts/blan/common.inc
+source /root/scripts/lanparty/common.inc
 cd $GSM_PATH
 
 #configure gameserver
