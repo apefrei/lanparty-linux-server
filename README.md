@@ -46,7 +46,7 @@ Automated installation of NGINX and all required components and configurations
 ##### 2) Configuration
 ```shell
 echo 'CACHE_MEM_SIZE="4000m"' > /root/.prxcfg
-echo 'CACHE_DISK_SIZE="3200000m"' >> /root/.prxcfg
+echo 'CACHE_DISK_SIZE="1700000m"' >> /root/.prxcfg
 echo 'CACHE_MAX_AGE="3560d"' >> /root/.prxcfg
 echo 'UPSTREAM_DNS="192.168.88.1"' >> /root/.prxcfg
 echo 'LOGFILE_RETENTION="3560"' >> /root/.prxcfg
