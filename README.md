@@ -19,6 +19,10 @@ This project is inspired by the phenomenal work of "https://github.com/lancachen
 * Elements of those script are taken from the "https://github.com/lancachenet" project
 * The cache domains are maintained by the "https://github.com/uklans" project
 
+## Important
+
+* Those scripts are in no way enhancing your linux hosts security in any way. on the contrary!
+
 ## Install
 ##### 1) Requirements
 * Fedora 30 Linux Server Edition
