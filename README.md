@@ -22,10 +22,11 @@ This project is inspired by the phenomenal work of "https://github.com/lancachen
 ## Important
 
 * Those scripts are in no way enhancing your linux hosts security in any way. on the contrary!
+* Tested on Fedora 31 only
 
 ## Install
 ##### 1) Requirements
-* Fedora 30 Linux Server Edition
+* Fedora 31 Linux Server Edition
 * Fixed IP-Address
 ##### 2) Configuration
 ```shell
@@ -44,7 +45,7 @@ bash <(curl -s https://bitbucket.org/apetomate/lanparty-standard-linux/raw/maste
 Automated installation of NGINX and all required components and configurations
 ##### 1) Requirements
 * Bootstrapped with Kickstart Script
-* Fedora 30 Linux Server Edition
+* Fedora 31 Linux Server Edition
 * Two additional storages mounted at /data/storage1 and /data/storage2, for hash-split Nginx caching
 * Fixed IP-Address
 ##### 2) Configuration
@@ -65,7 +66,7 @@ echo 'NGINX_WORKER_PROCESSES="auto"' >> /root/.prxcfg
 ### [B] Standard Docker Environment with Butterlan Templates
 Automated installation of DOCKER and PORTAINER with Butterlan Templates
 ##### 1) Requirements
-* Fedora 30 Linux Server Edition
+* Fedora 31 Linux Server Edition
 * Bootstrapped with Kickstart Script
 * Fixed IP-Address
 ##### 2) Configuration
@@ -79,7 +80,7 @@ echo 'PORTAINER_PW="password"' > /root/.dkrcfg
 ### [C] Standard LinuxGSM Environment
 Automated building of LinuxGSM environment for all gameservers (not tested on all games)
 ##### 1) Requirements
-* Fedora 30 Linux Server Edition
+* Fedora 31 Linux Server Edition
 * Bootstrapped with Kickstart Script
 * Fixed IP-Address
 ##### 2) Configuration
