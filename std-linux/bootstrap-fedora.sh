@@ -39,7 +39,6 @@ systemctl disable gssproxy.service >> $LOGFILE 2>&1
 
 dnf -y remove polkit polkit-pkla-compat >> $LOGFILE 2>&1
 chmod o=+r /usr/lib/systemd/system/auditd.service
-chmod -x /usr/lib/systemd/system/ebtables.service
 chmod -x /usr/lib/systemd/system/wpa_supplicant.service
 
 ###
