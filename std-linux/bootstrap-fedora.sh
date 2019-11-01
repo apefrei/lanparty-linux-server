@@ -1,11 +1,9 @@
 #!/bin/bash
 
 echo "### Initializing package repositories"
-dnf -y install epel-release >> $LOGFILE 2>&1
 dnf -y clean all >> $LOGFILE 2>&1
 
 echo "### Installing base packages"
-dnf -y install deltarpm >> $LOGFILE 2>&1
 dnf -y upgrade >> $LOGFILE 2>&1
 dnf -y update ca-certificates >> $LOGFILE 2>&1
 dnf -y install acpid apg bzip2 gzip unzip htop nano nmap nload net-tools rsync \
