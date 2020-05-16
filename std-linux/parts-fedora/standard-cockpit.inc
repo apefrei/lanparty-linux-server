@@ -1,0 +1,12 @@
+echo "### Setting up cockpit"
+if [ "$ENABLE_COCKPIT" == "yes" ]
+then
+    systemctl enable --now cockpit.socket >> $LOGFILE 2>&1
+    systemctl start cockpit.service >> $LOGFILE 2>&1
+else
+    systemctl disable cockpit.service >> $LOGFILE 2>&1
+    systemctl disable cockpit.socket >> $LOGFILE 2>&1
+    systemctl stop cockpit.service >> $LOGFILE 2>&1
+    systemctl stop cockpit.socket >> $LOGFILE 2>&1
+fi
+#eof

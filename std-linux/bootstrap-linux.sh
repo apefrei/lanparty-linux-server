@@ -26,6 +26,7 @@ source $STD_PATH/parts-fedora/standard-ntp.inc
 source $STD_PATH/parts-fedora/standard-snmp.inc
 source $STD_PATH/parts-fedora/standard-tuning.inc
 source $STD_PATH/parts-fedora/standard-telegraf.inc
+source $STD_PATH/parts-fedora/standard-cockpit.inc
 
 echo "### Setting up services"
 chmod +x /etc/rc.local
