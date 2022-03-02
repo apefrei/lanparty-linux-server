@@ -23,6 +23,7 @@ This project is inspired by the work of "https://github.com/lancachenet" and "ht
 ```shell
 echo "ENABLE_TELEGRAF=no" > /root/.stdcfg
 echo "ENABLE_COCKPIT=yes" >> /root/.stdcfg
+echo "INSTALL_LTKERNEL=yes" >> /root.stdcfg
 echo "INFLUX_IP=192.168.88.8" >> /root/.stdcfg
 echo "INFLUX_ADMIN=dbadmin" >> /root/.stdcfg
 echo "INFLUX_PW=yourpass" >> /root/.stdcfg
