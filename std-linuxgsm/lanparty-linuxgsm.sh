@@ -23,8 +23,8 @@ echo "### Standard setup for LinuxGSM"
 echo "    Logfile: $LOGFILE"
 
 # ATTENTION: Dependencies!!!
-source $GSM_PATH/parts-fedora/standard-linuxgsm-components.inc
-source $GSM_PATH/parts-fedora/standard-gameserver-environment.inc
+source $GSM_PATH/parts-linux/standard-linuxgsm-components.inc
+source $GSM_PATH/parts-linux/standard-gameserver-environment.inc
 
 ###
 echo

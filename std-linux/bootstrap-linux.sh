@@ -13,21 +13,21 @@ dnf -y install acpid bzip2 gzip unzip nano nmap net-tools rsync \
                sysstat dbus vim iperf3 iftop screen symlinks >> $LOGFILE 2>&1
 
 echo "### Setting up environment"
-rm -f /root/.bashrc && cp $STD_PATH/configs-fedora/.bashrc /root/
-cp $STD_PATH/configs-fedora/.screenrc /root/
-cp $STD_PATH/configs-fedora/.vimrc /root/
+rm -f /root/.bashrc && cp $STD_PATH/configs-linux/.bashrc /root/
+cp $STD_PATH/configs-linux/.screenrc /root/
+cp $STD_PATH/configs-linux/.vimrc /root/
 touch /root/.bashrc_local
 mkdir /root/{dist,build,temp}
 chmod -R +x /root/scripts/lanparty
 
-source $STD_PATH/parts-fedora/standard-python3.inc
-source $STD_PATH/parts-fedora/standard-security.inc
-source $STD_PATH/parts-fedora/standard-ssh.inc
-source $STD_PATH/parts-fedora/standard-ntp.inc
-source $STD_PATH/parts-fedora/standard-snmp.inc
-source $STD_PATH/parts-fedora/standard-tuning.inc
-source $STD_PATH/parts-fedora/standard-telegraf.inc
-source $STD_PATH/parts-fedora/standard-cockpit.inc
+source $STD_PATH/parts-linux/standard-python3.inc
+source $STD_PATH/parts-linux/standard-security.inc
+source $STD_PATH/parts-linux/standard-ssh.inc
+source $STD_PATH/parts-linux/standard-ntp.inc
+source $STD_PATH/parts-linux/standard-snmp.inc
+source $STD_PATH/parts-linux/standard-tuning.inc
+source $STD_PATH/parts-linux/standard-telegraf.inc
+source $STD_PATH/parts-linux/standard-cockpit.inc
 
 echo "### Setting up services"
 chmod +x /etc/rc.local

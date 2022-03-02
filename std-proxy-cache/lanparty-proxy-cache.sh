@@ -60,10 +60,10 @@ else
 fi
 
 # ATTENTION: Dependencies!!!
-source $PRX_PATH/parts-fedora/standard-proxy-components.inc
-source $PRX_PATH/parts-fedora/standard-nginx-proxy-cache.inc
-source $PRX_PATH/parts-fedora/standard-nginx-sniproxy.inc
-source $PRX_PATH/parts-fedora/standard-nginx-telegraf.inc
+source $PRX_PATH/parts-linux/standard-proxy-components.inc
+source $PRX_PATH/parts-linux/standard-nginx-proxy-cache.inc
+source $PRX_PATH/parts-linux/standard-nginx-sniproxy.inc
+source $PRX_PATH/parts-linux/standard-nginx-telegraf.inc
 
 ###
 echo "### Finishing installation"

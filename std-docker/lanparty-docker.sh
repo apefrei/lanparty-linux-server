@@ -33,8 +33,8 @@ echo "### Standard setup for docker environment"
 echo "    Logfile: $LOGFILE"
 
 # ATTENTION: Dependencies!!!
-source $DKR_PATH/parts-fedora/standard-docker-basics.inc
-source $DKR_PATH/parts-fedora/standard-docker-telegraf.inc
+source $DKR_PATH/parts-linux/standard-docker-basics.inc
+source $DKR_PATH/parts-linux/standard-docker-telegraf.inc
 
 markAsDone
 #eof
