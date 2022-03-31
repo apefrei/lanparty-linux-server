@@ -1,6 +1,6 @@
 ## What's this for?
 
-* Simple Standard CentOS Linux Installation, with basic tools
+* Simple Standard Rocky Linux Installation, with basic tools
 * Service Components for LAN Party Servers
 
 ## Inspiration
@@ -13,11 +13,11 @@ This project is inspired by the work of "https://github.com/lancachenet" and "ht
 ## Important
 
 * Those scripts are in no way enhancing your linux hosts security in any way. on the contrary!
-* Tested on CentOS 8
+* Tested on Rocky Linux 8
 
 ## Install
 ##### 1) Requirements
-* CentOS 8 **Server** Installation
+* **Rocky Linux 8 minimal** Installation
 * Fixed IP-Address(es)
 ##### 2) Configuration
 ```shell
@@ -28,9 +28,10 @@ echo "INFLUX_IP=192.168.88.8" >> /root/.stdcfg
 echo "INFLUX_ADMIN=dbadmin" >> /root/.stdcfg
 echo "INFLUX_PW=yourpass" >> /root/.stdcfg
 ```
-* If you do not use stat collecting by influxdb, set ENABLE_TELEGRAF=no. You can enable the service later
-* ENABLE_COCKPIT will enable, the already installed, cockpit web-management service
-* INFLUX_IP will be the timeseries database you send your metrics to
+* **ENABLE_TELEGRAF** will enable sending your metrics to an influx db service. You can enable the service later
+* **ENABLE_COCKPIT** will enable, the already installed, cockpit web-management service
+* **INSTALL_LTKERNEL** will install the latest LT-Kernel from ELREPO (better hardware compatibility)
+* **INFLUX_IP** will be the timeseries database you send your metrics to
 ##### 3) Kickstart the installation
 ```shell
 bash <(curl -s https://bitbucket.org/apetomate/lanparty-standard-linux/raw/master/kickstart-lanparty-linux.sh)
@@ -39,7 +40,7 @@ bash <(curl -s https://bitbucket.org/apetomate/lanparty-standard-linux/raw/maste
 ### [A] Nginx High-Performance Proxy Cache for Game-Download-Clients (Steam, Epic Store, ...)
 Automated installation of NGINX and all required components and configurations
 ##### 1) Requirements
-* CentOS 8 **Server** Installation
+* **Rocky Linux 8 minimal** Installation
 * Bootstrapped with Kickstart Script
 * Two additional storages mounted at /data/storage1 and /data/storage2, for hash-split Nginx caching
 * Fixed IP-Address(es)
@@ -61,7 +62,7 @@ echo 'NGINX_WORKER_PROCESSES="auto"' >> /root/.prxcfg
 ### [B] Standard Docker Environment with Butterlan Templates
 Automated installation of DOCKER and PORTAINER with Butterlan Templates
 ##### 1) Requirements
-* CentOS 8 **Server** Installation
+* **Rocky Linux 8 minimal** Installation
 * Bootstrapped with Kickstart Script
 * Fixed IP-Address(es)
 ##### 2) Configuration
@@ -75,7 +76,7 @@ echo 'PORTAINER_PW="password"' > /root/.dkrcfg
 ### [C] Standard LinuxGSM Environment
 Automated building of LinuxGSM environment for all gameservers (only tested on cs:go and cs:source)
 ##### 1) Requirements
-* CentOS 8 **Server** Installation
+* **Rocky Linux 8 minimal** Installation
 * Bootstrapped with Kickstart Script
 * Fixed IP-Address(es)
 ##### 2) Configuration
