@@ -1,6 +1,6 @@
 #Generating Domain Map from Git Repo
 IFS=' '
-CACHE_DOMAIN_REPO="https://github.com/uklans/cache-domains.git"
+CACHE_DOMAINS_REPO="https://github.com/uklans/cache-domains.git"
 CACHE_DOMAINS_BRANCH=master
 
 if test -f "/data/local/cachedomains"

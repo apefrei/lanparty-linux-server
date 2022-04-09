@@ -17,7 +17,6 @@ CACHE_DISK_SIZE=
 CACHE_MAX_AGE=
 UPSTREAM_DNS=
 LOGFILE_RETENTION=
-NGINX_WORKER_PROCESSES=
 PRXCFG="/root/.prxcfg"
 if ! test -f "/root/.prxcfg"
 then
