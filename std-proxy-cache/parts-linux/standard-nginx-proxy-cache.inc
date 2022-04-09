@@ -1,4 +1,4 @@
-echo "### Setting up NGINX Proxy Cache - This can take a while (recompiling)"
+echo "### Setting up NGINX Proxy Cache"
 
 {
         echo '[nginx-stable]'
