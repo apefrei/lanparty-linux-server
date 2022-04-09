@@ -23,7 +23,7 @@ This project is inspired by the work of "https://github.com/lancachenet" and "ht
 ```shell
 echo "ENABLE_TELEGRAF=no" > /root/.stdcfg
 echo "ENABLE_COCKPIT=yes" >> /root/.stdcfg
-echo "INSTALL_LTKERNEL=yes" >> /root.stdcfg
+echo "INSTALL_LTKERNEL=yes" >> /root/.stdcfg
 echo "INFLUX_IP=192.168.88.8" >> /root/.stdcfg
 echo "INFLUX_ADMIN=dbadmin" >> /root/.stdcfg
 echo "INFLUX_PW=yourpass" >> /root/.stdcfg
@@ -34,7 +34,7 @@ echo "INFLUX_PW=yourpass" >> /root/.stdcfg
 * **INFLUX_IP** will be the timeseries database you send your metrics to
 ##### 3) Kickstart the installation
 ```shell
-bash <(curl -s https://bitbucket.org/apetomate/lanparty-standard-linux/raw/master/kickstart-lanparty-linux.sh)
+bash <(curl -s https://raw.githubusercontent.com/apefrei/lanparty-linux-server/master/kickstart-lanparty-linux.sh)
 ```
 ## Components
 ### [A] Nginx High-Performance Proxy Cache for Game-Download-Clients (Steam, Epic Store, ...)
@@ -46,15 +46,15 @@ Automated installation of NGINX and all required components and configurations
 * Fixed IP-Address(es)
 ##### 2) Configuration
 ```shell
-echo 'CACHE_MEM_SIZE="2000m"' > /root/.prxcfg
-echo 'CACHE_DISK_SIZE="1700000m"' >> /root/.prxcfg
+echo 'CACHE_INDEX_SIZE="1000m"' > /root/.prxcfg
+echo 'CACHE_DISK_SIZE="1800000m"' >> /root/.prxcfg
 echo 'CACHE_MAX_AGE="3560d"' >> /root/.prxcfg
 echo 'UPSTREAM_DNS="192.168.88.1"' >> /root/.prxcfg
 echo 'LOGFILE_RETENTION="3560"' >> /root/.prxcfg
 echo 'NGINX_WORKER_PROCESSES="auto"' >> /root/.prxcfg
 ```
-* CACHE_MEM_SIZE is the keys_zone memory cache only (do not allocate all your RAM)
-* CACHE_DISK_SIZE will be splitted between storage1 and storage2 (count those two together)
+* **CACHE_INDEX_SIZE** is the keys_zone memory cache only (1GB will support 4TB of diskcache easily)
+* **CACHE_DISK_SIZE** will be the size of data per storage target
 ##### 3) Install
 ```shell
 /root/scripts/lanparty/std-proxy-cache/lanparty-proxy-cache.sh
