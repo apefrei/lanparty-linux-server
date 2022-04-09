@@ -12,7 +12,7 @@ dnf -y update ca-certificates >> $LOGFILE 2>&1
 dnf -y install acpid bzip2 gzip unzip nano nmap net-tools rsync \
                tcpdump telnet traceroute tree unzip uuid pciutils nvme-cli \
                wget curl readline-devel openssl-devel bash-completion \
-               sysstat dbus vim iperf3 iftop screen symlinks >> $LOGFILE 2>&1
+               sysstat dbus vim iperf3 iftop screen symlinks tar dnf-utils >> $LOGFILE 2>&1
 
 echo "### Setting up environment"
 rm -f /root/.bashrc && cp $STD_PATH/configs-linux/.bashrc /root/

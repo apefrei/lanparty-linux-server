@@ -1,52 +1,20 @@
 echo "### Setting up NGINX Proxy Cache - This can take a while (recompiling)"
 
+{
+        echo '[nginx-stable]'
+        echo 'name=nginx stable repo'
+        echo 'baseurl=http://nginx.org/packages/centos/$releasever/$basearch/'
+        echo 'gpgcheck=1'
+        echo 'enabled=1'
+        echo 'gpgkey=https://nginx.org/keys/nginx_signing.key'  
+        echo 'module_hotfixes=true'
+} >> /etc/yum.repos.d/nginx.repo
+
 # Install nginx
+yum-config-manager --enable nginx-stable >> $LOGFILE 2>&1
 dnf -y install nginx >> $LOGFILE 2>&1
 
-# Recompile NGINX with multi-threading
-dnf -y install gcc gcc-c++ make glibc-devel libaio-devel \
-               pcre-devel zlib-devel openssl-devel glibc \
-               libxslt libxslt-devel libxml2 libxml2-devel libXpm-devel \
-               glibc-headers libevent gd-devel \
-               libcrypt libstdc++ gperftools-devel \
-               libcom_err libselinux >> $LOGFILE 2>&1
-
-command="nginx -v"
-nginxv=$( ${command} 2>&1 )
-nginxlocal=$(echo $nginxv | grep -o '[0-9.]*')
-
-TEMP_PATH=$(mktemp -d)
-cd $TEMP_PATH
-wget http://nginx.org/download/nginx-$nginxlocal.tar.gz >> $LOGFILE 2>&1
-tar -xvzf nginx-$nginxlocal.tar.gz >> $LOGFILE 2>&1
-cd $TEMP_PATH/nginx-$nginxlocal
-
-./configure --prefix=/usr/share/nginx \
---sbin-path=/usr/sbin/nginx \
---modules-path=/usr/lib64/nginx/modules \
---conf-path=/etc/nginx/nginx.conf \
---error-log-path=/var/log/nginx/error.log \
---http-log-path=/var/log/nginx/access.log \
---http-client-body-temp-path=/var/lib/nginx/tmp/client_body \
---http-proxy-temp-path=/var/lib/nginx/tmp/proxy \
---http-uwsgi-temp-path=/var/lib/nginx/tmp/uwsgi \
---pid-path=/run/nginx.pid \
---lock-path=/run/lock/subsys/nginx \
---user=nginx --group=nginx --build=Lancache --with-file-aio --with-threads \
---with-http_ssl_module --with-http_v2_module --with-http_realip_module --with-stream_ssl_preread_module \
---with-http_addition_module --with-http_xslt_module --with-http_image_filter_module \
---with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module \
---with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module \
---with-http_secure_link_module --with-http_degradation_module --with-http_slice_module \
---with-http_stub_status_module --with-http_auth_request_module \
---with-mail=dynamic --with-mail_ssl_module --with-pcre --with-pcre-jit --with-stream \
---with-stream_ssl_module --with-stream_ssl_preread_module --with-google_perftools_module --with-debug \
---with-cc-opt='-O2 -g -pipe -Wall -Werror=format-security -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -m64 -mtune=intel -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection' >> $LOGFILE 2>&1
-
-make >> $LOGFILE 2>&1
-make install >> $LOGFILE 2>&1
 cd $PRX_PATH
-rm -rf $TEMP_PATH
 
 # Copy configuration
 rm -rf /etc/nginx
