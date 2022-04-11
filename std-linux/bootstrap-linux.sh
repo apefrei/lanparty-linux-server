@@ -11,7 +11,7 @@ dnf -y install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm >> 
 dnf -y update ca-certificates >> $LOGFILE 2>&1
 dnf -y install acpid bzip2 gzip unzip nano nmap net-tools rsync dmidecode \
                tcpdump telnet traceroute tree unzip uuid pciutils nvme-cli \
-               wget curl readline-devel openssl-devel bash-completion \
+               wget curl readline-devel openssl-devel bash-completion polkit \
                sysstat dbus vim iperf3 iftop screen symlinks tar dnf-utils >> $LOGFILE 2>&1
 
 echo "### Setting up environment"
