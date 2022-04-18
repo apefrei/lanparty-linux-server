@@ -2,7 +2,7 @@
 
 OLDDIR="`pwd`"
 cd /root/scripts/lanparty
-git pull >> /dev/null 2>&1
+git pull --rebase >> /dev/null 2>&1
 source /root/scripts/lanparty/common.inc
 checkHostname
 checkLockFile

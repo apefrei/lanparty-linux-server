@@ -65,11 +65,7 @@ Automated installation of DOCKER and PORTAINER with Butterlan Templates
 * **Rocky Linux 8 minimal** Installation
 * Bootstrapped with Kickstart Script
 * Fixed IP-Address(es)
-##### 2) Configuration
-```shell
-echo 'PORTAINER_PW="password"' > /root/.dkrcfg
-```
-##### 3) Install
+##### 2) Install
 ```shell
 /root/scripts/lanparty/std-docker/lanparty-docker.sh
 ```
