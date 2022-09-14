@@ -12,18 +12,18 @@ This project is inspired by the work of "https://github.com/lancachenet" and "ht
 
 ## Important
 
-* Those scripts are in no way enhancing your linux hosts security in any way. on the contrary!
-* Tested on Rocky Linux 8
+* Those scripts are in no way enhancing your linux hosts security in any way. On the contrary!
+* Tested on Rocky Linux 9
 
 ## Install
 ##### 1) Requirements
-* **Rocky Linux 8 minimal** Installation
+* **Rocky Linux 9 minimal** Installation
 * Fixed IP-Address(es)
 ##### 2) Configuration
 ```shell
 echo "ENABLE_TELEGRAF=no" > /root/.stdcfg
 echo "ENABLE_COCKPIT=yes" >> /root/.stdcfg
-echo "INSTALL_LTKERNEL=yes" >> /root/.stdcfg
+#echo "INSTALL_LTKERNEL=no" >> /root/.stdcfg - with rockylinux 9, this is no longer needed
 echo "INFLUX_IP=192.168.88.8" >> /root/.stdcfg
 echo "INFLUX_ADMIN=dbadmin" >> /root/.stdcfg
 echo "INFLUX_PW=yourpass" >> /root/.stdcfg
@@ -40,7 +40,7 @@ bash <(curl -s https://raw.githubusercontent.com/apefrei/lanparty-linux-server/m
 ### [A] Nginx High-Performance Proxy Cache for Game-Download-Clients (Steam, Epic Store, ...)
 Automated installation of NGINX and all required components and configurations
 ##### 1) Requirements
-* **Rocky Linux 8 minimal** Installation
+* **Rocky Linux 9 minimal** Installation
 * Bootstrapped with Kickstart Script
 * Two additional storages mounted at /data/storage1 and /data/storage2, for hash-split Nginx caching
 * Fixed IP-Address(es)
@@ -62,7 +62,7 @@ echo 'NGINX_WORKER_PROCESSES="auto"' >> /root/.prxcfg
 ### [B] Standard Docker Environment with Butterlan Templates
 Automated installation of DOCKER and PORTAINER with Butterlan Templates
 ##### 1) Requirements
-* **Rocky Linux 8 minimal** Installation
+* **Rocky Linux 9 minimal** Installation
 * Bootstrapped with Kickstart Script
 * Fixed IP-Address(es)
 ##### 2) Install
@@ -72,7 +72,7 @@ Automated installation of DOCKER and PORTAINER with Butterlan Templates
 ### [C] Standard LinuxGSM Environment
 Automated building of LinuxGSM environment for all gameservers (only tested on cs:go and cs:source)
 ##### 1) Requirements
-* **Rocky Linux 8 minimal** Installation
+* **Rocky Linux 9 minimal** Installation
 * Bootstrapped with Kickstart Script
 * Fixed IP-Address(es)
 ##### 2) Configuration
