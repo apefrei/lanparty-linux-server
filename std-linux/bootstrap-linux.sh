@@ -7,7 +7,7 @@ echo "### Installing base packages"
 dnf -y upgrade >> $LOGFILE 2>&1
 dnf -y install epel-release >> $LOGFILE 2>&1
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org >> $LOGFILE 2>&1
-dnf -y install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm >> $LOGFILE 2>&1
+dnf -y install https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm >> $LOGFILE 2>&1
 dnf -y update ca-certificates >> $LOGFILE 2>&1
 dnf -y install acpid bzip2 gzip unzip nano nmap net-tools rsync dmidecode \
                tcpdump telnet traceroute tree unzip uuid pciutils nvme-cli \
