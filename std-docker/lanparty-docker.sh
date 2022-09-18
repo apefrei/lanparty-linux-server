@@ -10,6 +10,20 @@ checkBootstrapped
 touch $LOGFILE
 cd $DKR_PATH
 
+# install params
+USE_REVERSE_PROXY=
+LETSENCRYPT_EMAIL=
+PORTAINER_VHOSTNAME=
+DKRCFG="/root/.dkrcfg"
+if ! test -f "/root/.dkrcfg"
+then
+    echo "### Cannot find the configuration file: $DKRCFG"
+    echo "EXITING"
+    exit 1
+else
+    source "$DKRCFG"
+fi
+
 echo "###"
 echo "###"
 echo "###"
