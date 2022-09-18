@@ -23,17 +23,10 @@ get_file_contents() {
 	done
 }
 
-
 main() {
-
 	echo "NGINX CONFIG DUMP FOR $1"
-
 	cd `dirname $1`
-
 	get_file_contents $1
-
 }
-
-
 
 main `readlink -f $1`
