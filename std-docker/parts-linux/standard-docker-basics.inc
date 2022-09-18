@@ -24,15 +24,14 @@ then
         --env "DEFAULT_EMAIL=$LETSENCRYPT_EMAIL" nginxproxy/acme-companion >> $LOGFILE 2>&1
 
     docker volume create portainer_data >> $LOGFILE 2>&1
-    docker run -d -p 8000:8000 --name portainer --restart always --privileged \
-           -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest \
-           -e "VIRTUAL_HOST=$PORTAINER_VHOSTNAME" -e "VIRTUAL_PORT=8000"
-           --templates https://raw.githubusercontent.com/apefrei/butterlan-portainer-templates/main/templates.json >> $LOGFILE 2>&1
-
+    docker run --detach --name portainer --restart always --privileged \
+        --env "VIRTUAL_HOST=$PORTAINER_VHOSTNAME" --env "VIRTUAL_PORT=9000" \
+        --env "LETSENCRYPT_HOST=$PORTAINER_VHOSTNAME" >> $LOGFILE 2>&1 \
+        --volume /var/run/docker.sock:/var/run/docker.sock \
+        --volume portainer_data:/data portainer/portainer-ce:latest >> $LOGFILE 2>&1
 else
     docker volume create portainer_data >> $LOGFILE 2>&1
     docker run -d -p 9443:9443 -p 8000:8000 --name portainer --restart always --privileged \
-           -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce \
-           --templates https://raw.githubusercontent.com/apefrei/butterlan-portainer-templates/main/templates.json >> $LOGFILE 2>&1
+           -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce >> $LOGFILE 2>&1
 fi
 #eof

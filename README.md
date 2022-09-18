@@ -65,6 +65,7 @@ Automated installation of DOCKER and PORTAINER with Butterlan Templates
 * **Rocky Linux 9 minimal** Installation
 * Bootstrapped with Kickstart Script
 * Fixed IP-Address(es)
+* If you set USE_REVERSE_PROXY="yes", it will always use letsencrypt and therefore the other params are mandatory
 * ##### 2) Configuration
 ```shell
 echo 'USE_REVERSE_PROXY="yes"' > /root/.dkrcfg
