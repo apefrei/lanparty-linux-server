@@ -13,6 +13,8 @@ then
     git clone --depth 1 https://github.com/apefrei/lanparty-linux-server.git /root/scripts/lanparty >> /dev/null 2>&1
 fi
 
+chmod -R +x /root/scripts/lanparty
+
 if test -f "/root/scripts/lanparty/std-linux/bootstrap.sh"
 then
     /root/scripts/lanparty/std-linux/bootstrap.sh
