@@ -26,7 +26,7 @@ then
     docker volume create portainer_data >> $LOGFILE 2>&1
     docker run --detach --name portainer --restart always --privileged \
         --env "VIRTUAL_HOST=$PORTAINER_VHOSTNAME" --env "VIRTUAL_PORT=9000" \
-        --env "LETSENCRYPT_HOST=$PORTAINER_VHOSTNAME" >> $LOGFILE 2>&1 \
+        --env "LETSENCRYPT_HOST=$PORTAINER_VHOSTNAME" \
         --volume /var/run/docker.sock:/var/run/docker.sock \
         --volume portainer_data:/data portainer/portainer-ce:latest >> $LOGFILE 2>&1
 else
