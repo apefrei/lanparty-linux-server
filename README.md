@@ -18,7 +18,7 @@ This project is inspired by the work of "https://github.com/lancachenet" and "ht
 ## Install
 ##### 1) Requirements
 * **Rocky Linux 9 minimal** Installation
-* Fixed IP-Address(es)
+* A FQDN hostname [host.example.com]
 ##### 2) Configuration
 ```shell
 echo "ENABLE_TELEGRAF=no" > /root/.stdcfg
@@ -43,7 +43,7 @@ Automated installation of NGINX and all required components and configurations
 * **Rocky Linux 9 minimal** Installation
 * Bootstrapped with Kickstart Script
 * Two additional storages mounted at /data/storage1 and /data/storage2, for hash-split Nginx caching
-* Fixed IP-Address(es)
+* Fixed IP-Address(es) are highly recommendet
 ##### 2) Configuration
 ```shell
 echo 'CACHE_INDEX_SIZE="1800m"' > /root/.prxcfg
@@ -64,7 +64,7 @@ Automated installation of DOCKER and PORTAINER with Butterlan Templates
 ##### 1) Requirements
 * **Rocky Linux 9 minimal** Installation
 * Bootstrapped with Kickstart Script
-* Fixed IP-Address(es)
+* Fixed IP-Address(es) are highly recommendet
 * If you set USE_REVERSE_PROXY="yes", it will always use letsencrypt and therefore the other params are mandatory
 * ##### 2) Configuration
 ```shell
@@ -75,16 +75,4 @@ echo 'PORTAINER_VHOSTNAME="your.domain.com"' >> /root/.dkrcfg
 ##### 3) Install
 ```shell
 /root/scripts/lanparty/std-docker/lanparty-docker.sh
-```
-### [C] Standard LinuxGSM Environment
-Automated building of LinuxGSM environment for all gameservers (only tested on cs:go and cs:source)
-##### 1) Requirements
-* **Rocky Linux 9 minimal** Installation
-* Bootstrapped with Kickstart Script
-* Fixed IP-Address(es)
-##### 2) Configuration
-There is no pre configuration. Therefore, the script depends on your userinput.
-##### 3) Install
-```shell
-/root/scripts/lanparty/std-linuxgsm/lanparty-linuxgsm.sh
 ```
