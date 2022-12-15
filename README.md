@@ -19,6 +19,7 @@ This project is inspired by the work of "https://github.com/lancachenet" and "ht
 ##### 1) Requirements
 * **Rocky Linux 9 minimal** Installation
 * A FQDN hostname [host.example.com]
+* * hostnamectl set-hostname hostname.domain.tld
 ##### 2) Configuration
 ```shell
 echo "ENABLE_TELEGRAF=no" > /root/.stdcfg
