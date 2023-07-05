@@ -67,9 +67,10 @@ Automated installation of DOCKER and PORTAINER with Butterlan Templates
 * Bootstrapped with Kickstart Script
 * Fixed IP-Address(es) are highly recommendet
 * If you set USE_REVERSE_PROXY="yes", it will always use letsencrypt and therefore the other params are mandatory
-* ##### 2) Configuration
+  * This only works if your services are public reachable on HTTP
+##### 2) Configuration
 ```shell
-echo 'USE_REVERSE_PROXY="yes"' > /root/.dkrcfg
+echo 'USE_REVERSE_PROXY="no"' > /root/.dkrcfg
 echo 'LETSENCRYPT_EMAIL="your@email.com"' >> /root/.dkrcfg
 echo 'PORTAINER_VHOSTNAME="your.domain.com"' >> /root/.dkrcfg
 ```
