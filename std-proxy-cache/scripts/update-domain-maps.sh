@@ -1,15 +1,12 @@
-#Generating Domain Map from Git Repo
-IFS=' '
+#!/bin/bash
+
 CACHE_DOMAINS_REPO="https://github.com/uklans/cache-domains.git"
-CACHE_DOMAINS_BRANCH=master
+IFS=' '
+mkdir -p /data/local/cachedomains
+echo "Bootstrapping Monolithic from ${CACHE_DOMAINS_REPO}"
 
-if test -f "/data/local/cachedomains"
-then
-    mkdir -p "/data/local/cachedomains"
-fi
-
-cd /data/local/cachedomains
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+cd /data/local/cachedomains
 if [[ ! -d .git ]]; then
 	git clone ${CACHE_DOMAINS_REPO} .
 fi

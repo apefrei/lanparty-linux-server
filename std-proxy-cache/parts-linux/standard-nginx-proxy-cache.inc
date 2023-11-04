@@ -25,7 +25,6 @@ ln -sf /etc/nginx/sites-available/* /etc/nginx/sites-enabled/
 
 # Configure variables
 set -e
-echo "worker_processes auto;" > /etc/nginx/workers.conf
 sed -i "s/CACHE_INDEX_SIZE/${CACHE_INDEX_SIZE}/" /etc/nginx/conf.d/20_proxy_cache_path.conf
 sed -i "s/CACHE_DISK_SIZE/${CACHE_DISK_SIZE}/" /etc/nginx/conf.d/20_proxy_cache_path.conf
 sed -i "s/CACHE_MAX_AGE/${CACHE_MAX_AGE}/" /etc/nginx/sites-available/cache.conf.d/root/20_cache.conf

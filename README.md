@@ -24,7 +24,7 @@ This project is inspired by the work of "https://github.com/lancachenet" and "ht
 ```shell
 echo "ENABLE_TELEGRAF=no" > /root/.stdcfg
 echo "ENABLE_COCKPIT=yes" >> /root/.stdcfg
-#echo "INSTALL_LTKERNEL=no" >> /root/.stdcfg - with rockylinux 9, this is no longer needed
+echo "INSTALL_LTKERNEL=yes" >> /root/.stdcfg
 echo "INFLUX_IP=192.168.88.8" >> /root/.stdcfg
 echo "INFLUX_ADMIN=dbadmin" >> /root/.stdcfg
 echo "INFLUX_PW=yourpass" >> /root/.stdcfg
@@ -52,7 +52,6 @@ echo 'CACHE_DISK_SIZE="1800g"' >> /root/.prxcfg
 echo 'CACHE_MAX_AGE="3560d"' >> /root/.prxcfg
 echo 'UPSTREAM_DNS="192.168.88.1"' >> /root/.prxcfg
 echo 'LOGFILE_RETENTION="3560"' >> /root/.prxcfg
-echo 'NGINX_WORKER_PROCESSES="auto"' >> /root/.prxcfg
 ```
 * **CACHE_INDEX_SIZE** is the keys_zone memory cache only (1GB will support 4TB of diskcache easily)
 * **CACHE_DISK_SIZE** will be the size of data per storage target
